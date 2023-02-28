@@ -1,0 +1,1835 @@
+<div class="xs-pd-20-10 pd-ltr-20">
+    <div class="page-header">
+      <div class="title my-2">
+        <h3>Ticket</h3>
+      </div>
+      <div class="header_btn_container">
+        <div class="m-1">
+          <button
+            type="button"
+            class="btn head_buttons btn-sm"
+            data-modal="ticket"
+            data-bs-toggle="modal"
+            data-bs-target="#ticket_create_modal"
+            style="color: rgb(255, 255, 255); background-color: rgb(83 175 79)"
+          >
+            <span><i class="icon-copy dw dw-add"></i></span>
+            <span class="ml-2">Create Ticket</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="page-header">
+      <div class="">
+        <div class="">
+          <div class="tab">
+            <!-- class name changed tab_container_box_header1-->
+            <ul
+              class="nav nav-tabs customtab tab_container_box_header tab_list_container_status"
+              role="tablist"
+            >
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  data-toggle="tab"
+                  href="#raised_bg_tab"
+                  role="tab"
+                  aria-selected="true"
+                  >Raised</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  data-toggle="tab"
+                  href="#issued_bg_tab"
+                  role="tab"
+                  aria-selected="false"
+                  >Issued</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  data-toggle="tab"
+                  href="#view_bg_tab"
+                  role="tab"
+                  aria-selected="false"
+                  >View</a
+                >
+              </li>
+              <li class="nav-item admin_c_tab">
+                <a
+                  class="nav-link"
+                  data-toggle="tab"
+                  href="#manage_bg_tab"
+                  role="tab"
+                  aria-selected="false"
+                  >Manage</a
+                >
+              </li>
+            </ul>
+            <!-- class name changed tab_container_box1-->
+            <div class="tab-content tab_container_box">
+              <div
+                class="tab-pane fade show active"
+                id="raised_bg_tab"
+                role="tabpanel"
+              >
+                <div>
+                  <div class="mb-10">
+                    <div class="height-100-p pd-20 min-height-200px">
+                      <div class="">
+                        <div class="row pb-10">
+                          <div class="col-md-3 col-lg-3">
+                            <div class="">
+                              <label class="">Select card</label>
+                              <div class="">
+                                <!-- Search onchange event on function -->
+                                <select
+                                  id="ticket_raised_sort"
+                                  class="custom-select px-2 w-100"
+                                  onchange="raised_status(this)"
+                                >
+                                  <!-- <option value="" selected>Select option :</option> -->
+                                  <option value="Creator">Creator</option>
+                                  <option value="Viewer">Viewer</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+  
+                          <div id="creator_status" class="col-md-3 col-lg-3">
+                           
+                              <label class="">Select Status</label>
+                              <div class="">
+                                <select
+                                  id="ticket_creator_status_sorting"
+                                  class="custom-select px-2 w-100"
+                                  onchange="showTimelinemodal(this)"
+                                >
+                                  <option value="" disabled selected>Select Creator option</option>
+                                  <option value="All">All</option>
+                                  <option value="Pending">Pending</option>
+                                  <option value="Scheduling">Scheduling</option>
+                                  <option value="New">New</option>
+                                  <option value="CreatorTimeline">Timeline</option>
+                                </select>
+                                
+                              </div>
+                            
+                          </div>
+  
+                          <div
+                            id="viewer_status"
+                            class="col-md-3 col-lg-3 d-none"
+                          >
+                              <label class="">Select Status</label>
+                              <div class="">
+                                <select
+                                  
+                                  id="ticket_viewer_status_sorting"
+                                  class="custom-select px-2 w-100"
+                                  onchange="showTimelinemodal(this)"
+                                >
+                                  <option value="" disabled selected>Select Viewer option</option>
+                                  <option value="All">All</option>
+                                  <option value="Pending">Pending</option>
+                                  <option value="Scheduling">Scheduling</option>
+                                  <option value="New">New</option>
+                                  <option value="ViewerTimeline">Timeline</option>
+                                </select>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row two_tab_conatainer">
+                        <div class="col-md-8 mb-10">
+                          <div class="height-100-p">
+                            <!-- everythig happening in -->
+                            <div class="user-list">
+                              <ul class="p-2" id="creator_card_list_container">
+                                <!--  -->
+                               
+                                <!--  -->
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                          <div
+                            class="card-box min-height-200px pd-20 tab_count_box_card"
+                            data-bgcolor="#265ed7"
+                          >
+                            <div>
+                              <div class="pd-20 height-100-p">
+                                <h4 class="mb-20 h4">Ticket Status List</h4>
+                                <ul class="list-group">
+                                  <li
+                                    class="list-group-item d-flex justify-content-between align-items-center"
+                                  >
+                                    Pending
+                                    <span
+                                      class="badge text-dark badge-pill status_count_s_pending"
+                                      >0</span
+                                    >
+                                  </li>
+                                  <li
+                                    class="list-group-item d-flex justify-content-between align-items-center"
+                                  >
+                                    Approved
+                                    <span
+                                      class="badge text-dark badge-pill status_count_s_approved"
+                                      >0</span
+                                    >
+                                  </li>
+                                  <li
+                                    class="list-group-item d-flex justify-content-between align-items-center"
+                                  >
+                                    Scheduling
+                                    <span
+                                      class="badge text-dark badge-pill status_count_s_scheduling"
+                                      >0</span
+                                    >
+                                  </li>
+                                  <li
+                                    class="list-group-item d-flex justify-content-between align-items-center"
+                                  >
+                                    Awaiting Approval
+                                    <span
+                                      class="badge text-dark badge-pill status_count_s_awaiting_approval"
+                                      >0</span
+                                    >
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="issued_bg_tab" role="tabpanel">
+                <div>
+                  <div class="mb-10">
+                    <div class="height-100-p pd-20 min-height-200px">
+                      <div class="">
+                        <div class="row pb-10">
+  
+                          <div class="col-md-3 col-lg-3">
+                            <div class="">
+                              <label class="">Select card</label>
+                              <div class="">
+                                <select
+                                  id="ticket_issued_sort"
+                                  class="custom-select px-2 w-100"
+                                  onchange="issued_status(this)"
+                                >
+                                  <!-- <option value="">Select option :</option> -->
+                                  <option value="Main Assigne">
+                                    Main Assigne
+                                  </option>
+                                  <option value="Sub Assigne">Sub Assigne</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="mainassignee_status" class="col-md-3 col-lg-3">
+                            <div class="">
+                              <label class="">Select Status :</label>
+                              <div class="">
+                                <select
+                                  id="ticket_mainassignee_status_sorting"
+                                  class="custom-select px-2 w-100"
+                                  onchange="showTimelinemodal(this)"
+                                >
+                                  <option value="" disabled selected>Select Main-Assignee option</option>
+                                  <option value="All">All</option>
+                                  <option value="Pending">Pending</option>
+                                  <option value="Scheduling">Scheduling</option>
+                                  <option value="New">New</option>
+                                  <option value="MainassigneeTimeline">Timeline</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="subassignee_status" class="col-md-3 col-lg-3 d-none">
+                            <div class="">
+                              <label class="">Select Status :</label>
+                              <div class="">
+                                <select
+                                  id="ticket_subassignee_status_sorting"
+                                  class="custom-select px-2 w-100"
+                                  onchange="showTimelinemodal(this)"
+                                >
+                                  <option value="" disabled selected>Select Sub-Assingee option</option>
+                                  <option value="All">All</option>
+                                  <option value="Pending">Pending</option>
+                                  <option value="Scheduling">Scheduling</option>
+                                  <option value="New">New</option>
+                                  <option value="SubassigneeTimeline">Timeline</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row two_tab_conatainer">
+                        <div class="col-md-8 mb-10">
+                          <div class="height-100-p">
+                            <div class="user-list">
+                              <ul class="p-2" id="mainassign_card_list_container">
+                                <!--  -->
+  
+                                <!--  -->
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <div class="col-md-4 mb-4">
+                                                  <div class="card-box min-height-200px pd-20 tab_count_box_card" data-bgcolor="#265ed7">
+                                                      <div>
+                                                          <div class="pd-20 height-100-p">
+                                                              <h4 class="mb-20 h4">Prealoader Task Type List</h4>
+                                                              <ul class="list-group">
+                                                                  <li class="list-group-item d-flex justify-content-between align-items-center ">
+                                                                      Daily
+                                                                      <span class="badge text-dark badge-pill status_count_s_daily">0</span>
+                                                                  </li>
+                                                                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                     Weekly
+                                                                      <span class="badge text-dark  badge-pill status_count_s_weekly">0</span>
+                                                                  </li>
+                                                                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                     Monthly
+                                                                      <span class="badge text-dark badge-pill status_count_s_monthly">0</span>
+                                                                  </li>
+                                                                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                     Yearly
+                                                                      <span class="badge text-dark badge-pill status_count_s_yearly">0</span>
+                                                                  </li>
+                                                              
+                      
+                                                              </ul>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="view_bg_tab" role="tabpanel">
+                <div>
+                  <div class="mb-10">
+                    <div class="height-100-p pd-20 min-height-200px">
+                      <div class="pb-10">
+                        <div class="row pb-10">
+                          <div class="col-md-3 col-lg-3">
+                            <div class="">
+                              <label class="">Select Type</label>
+                              <div class="">
+                                <select
+                                  id="ticket_view_selectType_sort"
+                                  class="custom-select px-2 w-100"
+                                  onchange="issued_status(this)"
+                                >
+                                  <option value="" selected>Select option</option>
+                                  <option value="Raised">Raised</option>
+                                  <option value="Issued">Issued</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-3 col-lg-3">
+                            <div class="">
+                              <label class="">Select Status</label>
+                              <div class="">
+                                <select
+                                  id="ticket_view_status"
+                                  class="custom-select px-2 w-100"
+                                >
+                                  <option value="">Select option</option>
+                                  <option value="All">All</option>
+                                  <option value="Scheduling">Scheduling</option>
+                                  <option value="Pending">Pending</option>
+                                  <option value="Awaiting Approval">
+                                    Awaiting Approval
+                                  </option>
+                                  <option value="Completed">Completed</option>
+                                  <option value="Deleted">Deleted</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-3 col-lg-3">
+                            <div class="">
+                              <label class="">From Date</label>
+                              <div class="">
+                                <input
+                                  type="date"
+                                  name=""
+                                  id="ticket_view_start_date"
+                                  class="form-control"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-3 col-lg-3">
+                            <div class="">
+                              <label class="">To Date</label>
+                              <div class="">
+                                <input
+                                  type="date"
+                                  name=""
+                                  id="ticket_view_end_date"
+                                  class="form-control"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="">
+                              <div class="border-0 p-0 mt-4">
+                                <button
+                                  class="btn btn-primary btn-sm float-right"
+                                  id="task_view_filter_btn"
+                                  onclick="view_filter_ticket_tag()"
+                                >
+                                  Filter
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row two_tab_conatainer">
+                        <div class="col-md-8 mb-10">
+                          <div class="height-100-p">
+                            <div class="user-list">
+                              <ul class="p-2" id="view_card_list_container">
+                                <div class="no_record_img mt-5">
+                                  <div>
+                                    <img
+                                      src="/vendors/images/no_data.svg"
+                                      alt=""
+                                    />
+                                  </div>
+                                  <div>No Record</div>
+                                </div>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <div class="col-md-4 mb-4">
+                                                  <div class="card-box min-height-200px pd-20 tab_count_box_card" data-bgcolor="#265ed7">
+                                                      <div>
+                                                          <div class="pd-20  height-100-p">
+                                                              <h4 class="mb-20 h4">Task Status List</h4>
+                                                              <ul class="list-group">
+                                                                  <li class="list-group-item d-flex justify-content-between align-items-center  ">
+                                                                      Pending
+                                                                      <span class="badge text-dark badge-pill view_count_list_pending">0</span>
+                                                                  </li>
+                                                                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                     Approved
+                                                                      <span class="badge text-dark  badge-pill view_count_list_approved">0</span>
+                                                                  </li>
+                                                                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                      Awaiting Approval
+                                                                      <span class="badge text-dark badge-pill view_count_list_awiting_approval">0</span>
+                                                                  </li>
+                                                                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                      Completed
+                                                                      <span class="badge text-dark  badge-pill view_count_list_completed">0</span>
+                                                                  </li>
+                                                                  
+                                                              </ul>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="manage_bg_tab" role="tabpanel">
+                <div>
+                  <div class="mb-10">
+                    <div class="height-100-p pd-20 min-height-200px">
+                      <div class="pb-10">
+                        <div class="row pb-10">
+                          <div class="col-md-3 col-lg-3">
+                            <div class="">
+                              <label class="">Select Name</label>
+                              <div class="">
+                                <select
+                                  id="ticket_manage_name_sort"
+                                  class="custom-select px-2 w-100"
+                                >
+                                  <option value="" selected>
+                                    Select option
+                                  </option>
+                                  <option value="All">All</option>
+                                  <option value="N A">N A</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-3 col-lg-3">
+                            <div class="">
+                              <label class="">Select Type</label>
+                              <div class="">
+                                <select
+                                name="ticket_manage_selecttype_sort"
+                                  id="ticket_manage_selecttype_sort"
+                                  class="custom-select px-2 w-100"
+                                  onchange="role_options(this,'ticket_manage_role_sort')"
+                                >
+                                  <option selected value >Select option</option>
+                                  <option value="Raised">Raised</option>
+                                  <option value="Issued">Issued</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-3 col-lg-3">
+                            <div class="">
+                              <label class="">User Role</label>
+                              <div class="">
+                                <select
+                                name="ticket_manage_role_sort"
+                                  id="ticket_manage_role_sort"
+                                  class="custom-select px-2 w-100"
+                                >
+                                  <option value="" selected>Select option</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-3 col-lg-3">
+                            <div class="">
+                              <label class="">Select Status</label>
+                              <div class="">
+                                <select
+                                  id="ticket_manage_status_sort"
+                                  class="custom-select px-2 w-100"
+                                >
+                                  <option value="" selected>Select option</option>
+                                  <option value="All">All</option>
+                                  <option value="Scheduling">Scheduling</option>
+                                  <option value="Pending">Pending</option>
+                                  <option value="Awaiting Approval">
+                                    Awaiting Approval
+                                  </option>
+                                  <option value="Completed">Completed</option>
+                                  <option value="Deleted">Deleted</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-3 col-lg-3">
+                            <div class="">
+                              <label class="">From Date</label>
+                              <div class="">
+                                <input
+                                  type="date"
+                                  class="form-control"
+                                  name=""
+                                  id="ticket_manage_start_date"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-3 col-lg-3">
+                            <div class="">
+                              <label class="">To Date</label>
+                              <div class="">
+                                <input
+                                  type="date"
+                                  name=""
+                                  id="ticket_manage_end_date"
+                                  class="form-control"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col mt-4">
+                            <button
+                              class="btn btn-primary btn-sm float-right"
+                              id="task_manage_filter_btn"
+                              onclick="manage_filter_ticket_tag()"
+                            >
+                              Filter
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row two_tab_conatainer">
+                        <div class="col-md-8 mb-10">
+                          <div class="height-100-p">
+                            <div class="user-list">
+                              <ul class="p-2" id="manage_card_list_container">
+                                <div class="no_record_img mt-5">
+                                  <div>
+                                    <img
+                                      src="/vendors/images/no_data.svg"
+                                      alt=""
+                                    />
+                                  </div>
+                                  <div>No Record</div>
+                                </div>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <div class="col-md-4 mb-4 ">
+                                                  <div class="card-box min-height-200px pd-20 tab_count_box_card" data-bgcolor="#265ed7">
+                                                      <div>
+                                                          <div class="pd-20  height-100-p">
+                                                              <h4 class="mb-20 h4">Task Status List</h4>
+                                                              <ul class="list-group">
+                                                                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                      Pending
+                                                                      <span class="badge text-dark badge-pill manage_count_list_pending">0</span>
+                                                                  </li>
+                                                                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                     Approved
+                                                                      <span class="badge text-dark  badge-pill manage_count_list_approved">0</span>
+                                                                  </li>
+                                                                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                      Awaiting Approval
+                                                                      <span class="badge text-dark badge-pill manage_count_list_awaiting_approval">0</span>
+                                                                  </li>
+                                                                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                      Completed
+                                                                      <span class="badge text-dark  badge-pill manage_count_list_completed">0</span>
+                                                                  </li>
+                                                                  
+                                                              </ul>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- New Ticket -->
+  
+    <div class="modal fade" id="ticket_create_modal" data-bs-backdrop="static">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <di
+              class="fw-bold modal_heade_text"
+              id="exampleModalLabel"
+              style="color: #55a95b"
+            >
+              CREATE TICKET
+          </di>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body" style="background-color: #eee">
+            <div class="page-header mb-0">
+            <form id="myForm" class="form_containers">
+              <div class="row mt-2" class="page-header">
+                <div class="form-group col-md-6">
+                  <label style="color: #848885">No of Assigne</label>
+                  <select
+                    class="input_st form-select"
+                    id="text"
+                    onchange="subAsigne()"
+                  >
+                    <!-- <option value="" selected>Select Your Option</option> -->
+                    <option value="0" selected>0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label style="color: #848885">No of Viewers</label>
+                  <select
+                    aria-label=""
+                    class="input_st form-select"
+                    id="text2"
+                    onchange="viewer()"
+                  >
+                    <!-- <option value="" selected>Select Your Option</option> -->
+                    <option value="0" selected>0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                  </select>
+                </div>
+              </div>
+              <hr>
+              <u><div style="margin: 15px">Main Assigne</div></u>
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label style="color: #848885">Department</label>
+                  <select
+                    aria-label=""
+                    class="input_st form-select"
+                    name="text3"
+                    id="text3"
+                    onchange="changed(this,'text4')"
+                  >
+                    <option value="" selected>Select Your Option</option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Accounts">Accounts</option>
+                    <option value="Human_Resource">Human Resource</option>
+                    <option value="Land_Acquisition_Liasoning">
+                      Land Acquisition & Liasoning
+                    </option>
+                    <option value="Administration">Administration</option>
+                    <option value="Telemarketing">Telemarketing</option>
+                    <option value="Purchase">Purchase</option>
+                    <option value="IT">IT</option>
+                    <option value="Store">Store</option>
+                    <option value="Webapp_Board">Webapp & Board</option>
+                    <option value="Board">Board</option>
+                    <option value="GM">GM</option>
+                    <option value="CRM">CRM</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Digital_Marketing">Digital Marketing</option>
+                    <option value="Legal">Legal</option>
+                  </select>
+                </div>
+  
+                <div class="form-group col-md-6">
+                  <label aria-label="" style="color: #848885">Name</label>
+                  <select
+                    class="input_st form-select"
+                    name="text4"
+                    id="text4"
+                    onchange="setName(this,0)"
+                  >
+                    <option value="" selected>Select Your Option</option>
+                  </select>
+                </div>
+              </div>
+              <hr />
+              <div style="display: none" class="default" id="subAssign">
+                <u><div style="margin: 15px">Sub Assigne</div></u>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label style="color: #848885" id="subAssign"
+                      >Department</label
+                    >
+                    <select
+                      aria-label=""
+                      class="input_st form-select"
+                      id="text5"
+                      onchange="changed(this,'text6')"
+                    >
+                      <option value="" selected>Select Your Option</option>
+                      <option value="Engineering">Engineering</option>
+                      <option value="Sales">Sales</option>
+                      <option value="Accounts">Accounts</option>
+                      <option value="Human_Resource">Human Resource</option>
+                      <option value="Land_Acquisition_Liasoning">
+                        Land Acquisition & Liasoning
+                      </option>
+                      <option value="Administration">Administration</option>
+                      <option value="Telemarketing">Telemarketing</option>
+                      <option value="Purchase">Purchase</option>
+                      <option value="IT">IT</option>
+                      <option value="Store">Store</option>
+                      <option value="Webapp_Board">Webapp & Board</option>
+                      <option value="Board">Board</option>
+                      <option value="GM">GM</option>
+                      <option value="CRM">CRM</option>
+                      <option value="Marketing">Marketing</option>
+                      <option value="Digital_Marketing">Digital Marketing</option>
+                      <option value="Legal">Legal</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label style="color: #848885">Name</label>
+                    <select
+                      aria-label=""
+                      class="input_st form-select"
+                      id="text6"
+                      onchange="setName(this,1)"
+                    >
+                      <option value="" selected>Select Your Option</option>
+                    </select>
+                  </div>
+                </div>
+                <div style="display: none" class="default" id="subAssign1">
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label style="color: #848885" id="subAssign1"
+                        >Department</label
+                      >
+                      <select
+                        aria-label=""
+                        class="input_st form-select"
+                        id="text7"
+                        onchange="changed(this,'text8')"
+                      >
+                        <option value="" selected>Select Your Option</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Accounts">Accounts</option>
+                        <option value="Human_Resource">Human Resource</option>
+                        <option value="Land_Acquisition_Liasoning">
+                          Land Acquisition & Liasoning
+                        </option>
+                        <option value="Administration">Administration</option>
+                        <option value="Telemarketing">Telemarketing</option>
+                        <option value="Purchase">Purchase</option>
+                        <option value="IT">IT</option>
+                        <option value="Store">Store</option>
+                        <option value="Webapp_Board">Webapp & Board</option>
+                        <option value="Board">Board</option>
+                        <option value="GM">GM</option>
+                        <option value="CRM">CRM</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Digital_Marketing">
+                          Digital Marketing
+                        </option>
+                        <option value="Legal">Legal</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label style="color: #848885">Name</label>
+                      <select
+                        aria-label=""
+                        class="input_st form-select"
+                        id="text8"
+                        onchange="setName(this,2)"
+                      >
+                        <option value="" selected>Select Your Option</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div style="display: none" class="default" id="viewers">
+                <hr />
+                <u><div style="margin: 15px">Viewers</div></u>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label style="color: #848885">Department</label>
+                    <select
+                      aria-label=""
+                      class="input_st form-select"
+                      id="text9"
+                      onchange="changed(this,'text10')"
+                    >
+                      <option value="" selected>Select Your Option</option>
+                      <option value="Engineering">Engineering</option>
+                      <option value="Sales">Sales</option>
+                      <option value="Accounts">Accounts</option>
+                      <option value="Human_Resource">Human Resource</option>
+                      <option value="Land_Acquisition_Liasoning">
+                        Land Acquisition & Liasoning
+                      </option>
+                      <option value="Administration">Administration</option>
+                      <option value="Telemarketing">Telemarketing</option>
+                      <option value="Purchase">Purchase</option>
+                      <option value="IT">IT</option>
+                      <option value="Store">Store</option>
+                      <option value="Webapp_Board">Webapp & Board</option>
+                      <option value="Board">Board</option>
+                      <option value="GM">GM</option>
+                      <option value="CRM">CRM</option>
+                      <option value="Marketing">Marketing</option>
+                      <option value="Digital_Marketing">Digital Marketing</option>
+                      <option value="Legal">Legal</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label style="color: #848885">Name</label>
+                    <select
+                      aria-label=""
+                      class="input_st form-select"
+                      id="text10"
+                      onchange="setName(this,3)"
+                    >
+                      <option value="" selected>Select Your Option</option>
+                    </select>
+                  </div>
+                </div>
+                <div style="display: none" class="default" id="viewers1">
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label style="color: #848885">Department</label>
+                      <select
+                        aria-label=""
+                        class="input_st form-select"
+                        id="text11"
+                        onchange="changed(this,'text12')"
+                      >
+                        <option value="" selected>Select Your Option</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Accounts">Accounts</option>
+                        <option value="Human_Resource">Human Resource</option>
+                        <option value="Land_Acquisition_Liasoning">
+                          Land Acquisition & Liasoning
+                        </option>
+                        <option value="Administration">Administration</option>
+                        <option value="Telemarketing">Telemarketing</option>
+                        <option value="Purchase">Purchase</option>
+                        <option value="IT">IT</option>
+                        <option value="Store">Store</option>
+                        <option value="Webapp_Board">Webapp & Board</option>
+                        <option value="Board">Board</option>
+                        <option value="GM">GM</option>
+                        <option value="CRM">CRM</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Digital_Marketing">
+                          Digital Marketing
+                        </option>
+                        <option value="Legal">Legal</option>
+                      </select>
+                    </div>
+  
+                    <div class="form-group col-md-6">
+                      <label style="color: #848885">Name</label>
+                      <select
+                        aria-label=""
+                        class="input_st form-select"
+                        id="text12"
+                        onchange="setName(this,4)"
+                      >
+                        <option value="" selected>Select Your Option</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <hr />
+              </div>
+  
+              <div class="form-group col-md-12">
+                <label style="color: #848885">Ticket Info</label>
+                <textarea
+                  placeholder="Ticket Info"
+                  class="form-control"
+                  type="text"
+                  id="text13"
+                  cols="10"
+                  rows="5"
+                  style="text-transform: uppercase"
+                ></textarea>
+              </div>
+            </form>
+          </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-success btn-sm"
+              id="ticket_create_confirm_btn"
+              onclick="ticketUpdate(this)"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!--Ticket Icons Modal -->
+  
+    <!-- Edit Icon Modal  -->
+    <div
+      class="modal fade"
+      id="ticket_edit_modity_modal"
+      data-bs-backdrop="static"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <di class="fw-bold modal_heade_text" id="exampleModalLabel" style="color: #55a95b">
+              EDIT TICKET INFO
+            </di>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="background-color: #eee">
+            
+              <form class="form_containers ticket_modifty_modal_form">
+                <div class="page-header mb-0">
+                <div class="form-group">
+                  <label>Ticket Info</label>
+                  <input
+                    class="form-control modify_task_info_input"
+                    type="text"
+                    id="ticket_edit_modity_modal_field"
+                  />
+                </div>
+              </div>
+              </form>
+            
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-sm btn-primary" data-btn-name="edit" onclick="editTicket(this)">
+              Save Changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Chat Icon Modal -->
+    <div
+      class="modal fade"
+      id="ticket_chat_modity_modal"
+      data-bs-backdrop="static"
+    >
+      <div class="modal-dialog  modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <di class="fw-bold modal_heade_text" id="exampleModalLabel" style="color: #55a95b">
+              CHAT
+            </di>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="background-color: #eee">
+            <div>
+              <form class="modify_form ticket_modifty_modal_form">
+                <div class="page-header mb-0">
+                
+                  <div>
+                    <div class="p-2 chat_CS">
+                      <div class="h-100">
+                        <div class="chat_container">
+                          <div class="chat_box_container">
+                            <div class="chat_box">
+                              <!-- <div class="chat_box_header">Chat</div> -->
+                              <div class="chat_box_body">
+                                <div class="chat_box_content">
+                                  <div class="chat_box_messages">
+                                    <div class="chat_append">
+                                      <div
+                                        class="w-100 h-100 d-flex align-items-center justify-content-center no_chat_template p-4"
+                                      >
+                                        <div class="w-50 h-50 text-center">
+                                          <div>
+                                            <img
+                                              src="https://drive.google.com/uc?export=view&amp;id=10hd-GQbTgi1T06vvGF5_SGuSs_pqYLva"
+                                              alt=""
+                                              width="50%"
+                                              height="50%"
+                                            />
+                                          </div>
+                                          <div class="no_chat_text my-2">
+                                            <h6>No Record</h6>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+  
+                                  <div class="chat_input_box_cC">
+                                    <div
+                                      class="d-flex align-items-center justify-content-around"
+                                    >
+                                      <div
+                                        class="input_chat_box chat_box_input w-75 position-relative"
+                                      >
+                                        <div
+                                          class="spinner-border text-success chat_spinner"
+                                          role="status"
+                                          style="display: none"
+                                        >
+                                          <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div
+                                          class="input_st chatValue"
+                                          contenteditable="true"
+                                          disabled="true"
+                                          onkeyup="enterChatKey(this)"
+                                        ></div>
+                                      </div>
+                                      <div
+                                        class="chat_box_send"
+                                        onclick="ticket_button(this)"
+                                      >
+                                        <i
+                                          class="icon-copy dw dw-paper-plane1"
+                                        ></i>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Delete Icon Modal -->
+    <div
+      class="modal fade"
+      id="ticket_delete_modity_modal"
+      data-bs-backdrop="static"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <di class="fw-bold modal_heade_text" id="exampleModalLabel" style="color: #55a95b">
+              DELETE TICKET
+            </di>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="background-color: #eee">
+            <div>
+              <form class="modify_form ticket_modifty_modal_form">
+                <div class="page-header mb-0">
+                <div class="form-group">
+                  <label>Ticket Info</label>
+                  <input
+                    class="form-control modify_task_info_input"
+                    type="text"
+                    readonly=""
+                  />
+                </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Upload Icon Modal -->
+    <div
+      class="modal fade"
+      id="ticket_upload_modity_modal"
+      data-bs-backdrop="static"
+    >
+      <div class="modal-dialog  modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <di class="fw-bold modal_heade_text" id="exampleModalLabel" style="color: #55a95b">
+              UPLOAD FILE
+            </di>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="background-color: #eee">
+            <div class="">
+              <div>
+                <form class="form_containers ticket_modifty_modal_form">
+                  <div class="page-header mb-0">
+                  <div class="form-group">
+                    <label>Ticket Info</label>
+                    <input
+                      class="form-control modify_task_info_input"
+                      type="text"
+                      value=""
+                      readonly=""
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>Custom File Input</label>
+                    <div class="custom-file">
+                      <input
+                        type="file"
+                        class="custom-file-input modify_upload_info_input"
+                        id="modify_task_info_input"
+                        multiple=""
+                        id="ticket_uploadfile_modity_modal_field"
+                      />
+                      <label class="custom-file-label">Choose File</label>
+                    </div>
+                  </div>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-sm btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button class="btn btn-sm btn-primary" data-btn-name="uploadfile" onclick="uploadTicket(this)">
+              Upload
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+
+  <!-- Complete Icon Modal -->
+<div
+class="modal fade"
+id="ticket_complete_modity_modal"
+data-bs-backdrop="static"
+>
+<div class="modal-dialog  modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <di class="fw-bold modal_heade_text" id="exampleModalLabel" style="color: #55a95b">
+        COMPLETE TICKET
+      </di>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body" style="background-color: #eee">
+      <div>
+        <div class="">
+          <!-- <div> -->
+              <form class="modify_form">
+                <div class="page-header mb-0">
+                  <div class="form-group">
+                      <label>Task Info</label>
+                      <input class="form-control modify_task_info_input" value="" type="text" readonly="">
+                  </div>
+                  </div>
+              </form>
+              <!-- <div class="text-right">
+                  <button class="btn btn-sm btn-success" onclick="completedTask()">Complete</button>
+              </div> -->
+          <!-- </div> -->
+      </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-sm btn-success" onclick="ticket_button(this)">Complete</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Scheduled Icon Modal -->
+<div
+class="modal fade"
+id="ticket_schedule_modity_modal"
+data-bs-target="static"
+>
+<div class="modal-dialog  modal-dialog-centered" role="document">
+<div class="modal-content">
+  <div class="modal-header">
+    <di class="fw-bold modal_heade_text" id="exampleModalLabel" style="color: #55a95b">
+      SCHEDULE TIMELINE
+    </di>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+  <div class="modal-body" style="background-color: #eee">
+    <form id="" class="form_containers">
+      <div class="page-header mb-0">
+        <div class="form-group">
+          <label>Ticket Info</label>
+          <textarea class="form-control new_task_info"
+             readonly=""></textarea>
+        </div>
+        <div class="form-group">
+          <label>Schedule Date</label>
+          <input class="form-control modify_ticket_schedule_input" id="ticket_schedule_modity_modal_field" type="date" />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-sm btn-secondary"
+      data-bs-dismiss="modal"
+      id="ticket_schedule_modity_modal_field"
+    >
+      Cancel
+    </button>
+    <button type="button" class="btn btn-sm btn-primary" data-btn-name="schedule" onclick="scheduleTask(this)">Confirm</button>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- Re-Assign Icon Modal -->
+<div
+class="modal fade"
+id="ticket_reassign_modity_modal"
+data-bs-target="static"
+>
+<div class="modal-dialog  modal-dialog-centered" role="document">
+<div class="modal-content">
+  <div class="modal-header">
+    <di class="fw-bold modal_heade_text" id="exampleModalLabel" style="color: #55a95b">
+      REASSIGN TICKET
+    </di>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+  <div class="modal-body" style="background-color: #eee">
+    <div>
+      <form  class="form_containers ticket_modifty_modal_form">
+        <div class="page-header mb-0">
+          <div class="form-group ">
+            <label class="form-label " for="reassign_input">Ticket Info</label>
+            <textarea id="ticket_reassign_modity_modal_field" placeholder="Ticket Info......." class="form-control" id="reassign_input" rows="2"></textarea>
+          </div>
+          <div class="input-container">
+            <div class="row">
+              <div class="col">
+                <div class="form-group mb-0">
+                  <label>Department</label>
+                  <select name="" id="reassignee_dept" class="form-control form-select form-select-sm modify_reassign_info_input"
+                    onclick="changed(this,'reassignee_name')">
+                    <option value="" selected>
+                      Select your Dept
+                    </option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Accounts">Accounts</option>
+                    <option value="Human_Resource">Human Resource</option>
+                    <option value="Administration">Administration</option>
+                    <option value="Marketing">Tele Marketing</option>
+                    <option value="IT">IT</option>
+                    <option value="Store">Store</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group mb-0">
+                  <label class="">Name</label>
+                  <select name="" id="reassignee_name" class="form-control form-select form-select-sm assign_name modify_reassign_info_input">
+                    <option value="">Select the Name</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-sm btn-primary" data-btn-name="reassign" onclick="reassignTicket(this)">Submit</button>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- Add Sub-Assign Icon Modal -->
+<div
+class="modal fade"
+id="ticket_addsubassign_modity_modal"
+data-bs-target="static"
+>
+<div class="modal-dialog  modal-dialog-centered" role="document">
+<div class="modal-content">
+  <div class="modal-header">
+    <di class="fw-bold modal_heade_text" id="exampleModalLabel" style="color: #55a95b">
+      ADD SUB-ASSIGN
+    </di>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+  <div class="modal-body" style="background-color: #eee">
+    <div>
+      <form id="ticket_addsubassignee_modity_modal_field" class="form_containers">
+        <div class="page-header mb-0">
+          <div class="form-group">
+            <label class="form-label" for="reassign_input">Ticket Info</label>
+            <textarea placeholder="Ticket Info......." class="form-control" id="reassign_input" rows="2"></textarea>
+          </div>
+          <div class="row mt-2" class="page-header">
+            <div class="form-group col-md-6">
+              <label style="color: #848885">No of Sub-Assigne</label>
+              <select
+                class="input_st form-select"
+                id="subassignfield"
+                onchange="subAsigneicon()"
+              >
+                <!-- <option value="" selected>Select Your Option</option> -->
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+             
+            </div>
+          </div>
+          <div  class="default" id="subAssignfun1">
+            <u><div style="margin: 15px">Sub Assigne</div></u>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label style="color: #848885" id="subAssign"
+                  >Department</label
+                >
+                <select
+                  aria-label=""
+                  class="input_st form-select"
+                  onchange="changed(this,'subassignfield1')"
+                >
+                  <option value="" selected>Select Your Option</option>
+                  <option value="Engineering">Engineering</option>
+                  <option value="Sales">Sales</option>
+                  <option value="Accounts">Accounts</option>
+                  <option value="Human_Resource">Human Resource</option>
+                  <option value="Land_Acquisition_Liasoning">
+                    Land Acquisition & Liasoning
+                  </option>
+                  <option value="Administration">Administration</option>
+                  <option value="Telemarketing">Telemarketing</option>
+                  <option value="Purchase">Purchase</option>
+                  <option value="IT">IT</option>
+                  <option value="Store">Store</option>
+                  <option value="Webapp_Board">Webapp & Board</option>
+                  <option value="Board">Board</option>
+                  <option value="GM">GM</option>
+                  <option value="CRM">CRM</option>
+                  <option value="Marketing">Marketing</option>
+                  <option value="Digital_Marketing">Digital Marketing</option>
+                  <option value="Legal">Legal</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label style="color: #848885">Name</label>
+                <select
+                  aria-label=""
+                  class="input_st form-select"
+                  id="subassignfield1"
+                  onchange="setName(this,1)"
+                >
+                  <option value="" selected>Select Your Option</option>
+                </select>
+              </div>
+            </div>
+            <hr>
+            <div  id="subassignfield" class="btn btn-success" onclick="subassignee2icon()">Add SubAssignee 2</div>
+            <div style="display: none" class="default" id="subAssignfun2">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label style="color: #848885" id="subAssign1"
+                    >Department</label
+                  >
+                  <select
+                    aria-label=""
+                    class="input_st form-select"
+                    onchange="changed(this,'subassignfield2')"
+                  >
+                    <option value="" selected>Select Your Option</option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Accounts">Accounts</option>
+                    <option value="Human_Resource">Human Resource</option>
+                    <option value="Land_Acquisition_Liasoning">
+                      Land Acquisition & Liasoning
+                    </option>
+                    <option value="Administration">Administration</option>
+                    <option value="Telemarketing">Telemarketing</option>
+                    <option value="Purchase">Purchase</option>
+                    <option value="IT">IT</option>
+                    <option value="Store">Store</option>
+                    <option value="Webapp_Board">Webapp & Board</option>
+                    <option value="Board">Board</option>
+                    <option value="GM">GM</option>
+                    <option value="CRM">CRM</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Digital_Marketing">
+                      Digital Marketing
+                    </option>
+                    <option value="Legal">Legal</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label style="color: #848885">Name</label>
+                  <select
+                    aria-label=""
+                    class="input_st form-select"
+                    id="subassignfield2"
+                    onchange="setName(this,2)"
+                  >
+                    <option value="" selected>Select Your Option</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    
+    <button type="button" class="btn btn-sm btn-primary" onclick="addsubassignTicket(this)">Submit</button>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- Remove Sub-Assign  -->
+<div
+class="modal fade"
+id="ticket_removesubassign_modity_modal"
+data-bs-backdrop="static"
+>
+<div class="modal-dialog  modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <di class="fw-bold modal_heade_text" id="exampleModalLabel" style="color: #55a95b">
+       REMOVE SUB-ASSIGN
+      </di>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body" style="background-color: #eee">
+      <div>
+        <form id="ticket-remove-viewer-form" name="ticket-remove-viewer-form">
+          <div class="page-header mb-0">
+          <div class="mb-3" hidden="">
+            <div id="ticket-view-rowNo" hidden="">0</div>
+            <div id="ticket-view-no"></div>
+            <label for="ticket-assign-remview-id" class="form-label">ID</label>
+            <input id="ticket-assign-remview-id" name="Id" type="text" class="form-control">
+          </div>
+          <div class="row">
+            <div class="mb-3">
+              <label for="ticket-assign-remove-add-info" class="form-label">Ticket Info</label>
+              <textarea id="ticket-assign-remove-add-info" name="Info" type="text" class="form-control" placeholder="Add your ticket info here." disabled=""></textarea>
+            </div>
+          </div>
+          <u><div>Sub-Assigne</div></u>
+           <div class="row removeViewC">
+            <div class="col">
+              <label for="ticket-remove-view1-dep" class="form-label">Department</label>
+              <input readonly="" class="form-control" id="ticket-remove-view1-dep">
+            </div>
+            <div class="col">
+              <label for="ticket-remove-view1-name" class="form-label">Name</label>
+              <input readonly="" class="form-control" id="ticket-remove-view1-name">
+            </div>
+          </div>
+          <div class="row removeViewC">
+            <div class="col">
+              <label for="ticket-remove-view2-dep" class="form-label">Department</label>
+              <input readonly="" class="form-control" id="ticket-remove-view2-dep">
+            </div>
+            <div class="col">
+              <label for="ticket-remove-view2-name" class="form-label">Name</label>
+              <input readonly="" class="form-control" id="ticket-remove-view2-name">
+            </div>
+          </div>
+          <div class="col font-R" style="padding-bottom: 2rem; padding-top: 2rem;">
+            <p>Select the sub-assignee needs to be removed ?</p>
+            <div class="checkB"> 
+              <input type="checkbox" id="Viewer1user">
+            <label class="form-check-label" for="Viewer1user">Sub-Assignee1</label></div>
+           <div class="checkB">
+             <input type="checkbox" id="Viewer2user">
+            <label class="form-check-label" for="Viewer2user">Sub-Assignee2</label>
+            </div>
+            
+          </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-sm btn-primary" onclick="">Submit</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Remove Viewer Icon Modal -->
+<div
+class="modal fade"
+id="ticket_removeviewer_modity_modal"
+data-bs-backdrop="static"
+>
+<div class="modal-dialog  modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <di class="fw-bold modal_heade_text" id="exampleModalLabel" style="color: #55a95b">
+       REMOVE VIEWER
+      </di>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body" style="background-color: #eee">
+      <div>
+        <form id="ticket-remove-viewer-form" name="ticket-remove-viewer-form">
+          <div class="page-header mb-0">
+          <div class="mb-3" hidden="">
+            <div id="ticket-view-rowNo" hidden="">0</div>
+            <div id="ticket-view-no"></div>
+            <label for="ticket-assign-remview-id" class="form-label">ID</label>
+            <input id="ticket-assign-remview-id" name="Id" type="text" class="form-control">
+          </div>
+          <div class="row">
+            <div class="mb-3">
+              <label for="ticket-assign-remove-add-info" class="form-label">Ticket Info</label>
+              <textarea id="ticket-assign-remove-add-info" name="Info" type="text" class="form-control" placeholder="Add your ticket info here." disabled=""></textarea>
+            </div>
+          </div>
+          <u><div>Viewer</div></u>
+           <div class="row removeViewC">
+            <div class="col">
+              <label for="ticket-remove-view1-dep" class="form-label">Department</label>
+              <input readonly="" class="form-control" id="ticket-remove-view1-dep">
+            </div>
+            <div class="col">
+              <label for="ticket-remove-view1-name" class="form-label">Name</label>
+              <input readonly="" class="form-control" id="ticket-remove-view1-name">
+            </div>
+          </div>
+          <div class="row removeViewC">
+            <div class="col">
+              <label for="ticket-remove-view2-dep" class="form-label">Department</label>
+              <input readonly="" class="form-control" id="ticket-remove-view2-dep">
+            </div>
+            <div class="col">
+              <label for="ticket-remove-view2-name" class="form-label">Name</label>
+              <input readonly="" class="form-control" id="ticket-remove-view2-name">
+            </div>
+          </div>
+          <div class="col font-R" style="padding-bottom: 2rem; padding-top: 2rem;">
+            <p>Select the viewer needs to be removed ?</p>
+            <div class="checkB"> 
+              <input type="checkbox" id="Viewer1user">
+            <label class="form-check-label" for="Viewer1user">Viewer-1</label></div>
+           <div class="checkB">
+             <input type="checkbox" id="Viewer2user">
+            <label class="form-check-label" for="Viewer2user">Viewer-2</label>
+            </div>
+            
+          </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-sm btn-primary" onclick="">Submit</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Download Icon -->
+<div
+class="modal fade"
+id="ticket_download_modity_modal"
+data-bs-backdrop="static"
+>
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <di class="fw-bold modal_heade_text" id="exampleModalLabel" style="color: #55a95b">
+        DOWNLOAD FILE
+      </di>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body" style="background-color: #eee">
+      <div>
+        <form class="modify_form ticket_modifty_modal_form">
+          <div class="page-header mb-0">
+            <div class="tab-pane fade " id="download_icon" role="tabpanel">
+              <div class="">
+                  <div>
+                  <div class="down_container">
+                    <div class="download_append d-flex px-2"> <h5 class="text-center w-100">No Files</h5></div>
+                 </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-sm btn-success" onclick="">Download</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Raised Viewer Timeline Modal -->
+<div
+class="modal fade"
+id="timeline_viewer_modal"
+data-bs-backdrop="static"
+>
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header">
+      <di class="fw-bold modal_heade_text" id="exampleModalLabel" style="color: #55a95b">
+        Viewer Timeline
+      </di>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body" style="background-color: #eee">
+      
+      <div>
+        <form class="form_containers raised_issued_modal">
+          <div class="page-header mb-0">
+            <div  class="form-group">
+              <label>From Date</label>
+              <input id="viewer_timeline_modal_start_date" class="form-control" name="" type="date" />
+            </div>
+            <div  class="form-group">
+              <label>To Date</label>
+              <input id="viewer_timeline_modal_end_date" class="form-control" name="" type="date" />
+            </div>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-sm btn-success"  onclick="viewer_timeline()">
+        Save
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Raised Creator Timeline Modal -->
+<div
+class="modal fade"
+id="timeline_creator_modal"
+data-bs-backdrop="static"
+>
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header">
+      <di class="fw-bold modal_heade_text" id="exampleModalLabel" style="color: #55a95b">
+        Creator Timeline
+      </di>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body" style="background-color: #eee">
+      
+      <div>
+        <form class="form_containers raised_issued_modal">
+          <div class="page-header mb-0">
+            <div  class="form-group">
+              <label>From Date</label>
+              <input id="creator_timeline_modal_start_date" class="form-control" name="" type="date" />
+            </div>
+            <div  class="form-group">
+              <label>To Date</label>
+              <input id="creator_timeline_modal_end_date" class="form-control" name="" type="date" />
+            </div>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-sm btn-success"  onclick="creator_timeline()">
+        Save
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Issued Subassignee Timeline Modal -->
+<div
+class="modal fade"
+id="timeline_subassignee_modal"
+data-bs-backdrop="static"
+>
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header">
+      <di class="fw-bold modal_heade_text" id="exampleModalLabel" style="color: #55a95b">
+        Subassignee Timeline
+      </di>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body" style="background-color: #eee">
+      
+      <div>
+        <form class="form_containers raised_issued_modal">
+          <div class="page-header mb-0">
+            <div  class="form-group">
+              <label>From Date</label>
+              <input id="subassignee_timeline_modal_start_date" class="form-control" name="" type="date" />
+            </div>
+            <div  class="form-group">
+              <label>To Date</label>
+              <input id="subassignee_timeline_modal_end_date" class="form-control" name="" type="date" />
+            </div>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-sm btn-success"  onclick="subassignee_timeline()">
+        Save
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Issued Mainassignee Timeline Modal -->
+<div
+class="modal fade"
+id="timeline_mainassignee_modal"
+data-bs-backdrop="static"
+>
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header">
+      <di class="fw-bold modal_heade_text" id="exampleModalLabel" style="color: #55a95b">
+        Mainassignee Timeline
+      </di>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body" style="background-color: #eee">
+      
+      <div>
+        <form class="form_containers raised_issued_modal">
+          <div class="page-header mb-0">
+            <div  class="form-group">
+              <label>From Date</label>
+              <input id="mainassignee_timeline_modal_start_date" class="form-control" name="" type="date" />
+            </div>
+            <div  class="form-group">
+              <label>To Date</label>
+              <input id="mainassignee_timeline_modal_end_date" class="form-control" name="" type="date" />
+            </div>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-sm btn-success"  onclick="mainassignee_timeline()">
+        Save
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->

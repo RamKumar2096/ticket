@@ -1,0 +1,193 @@
+<div class="xs-pd-20-10 pd-ltr-20">
+    
+    <div class="page-header">
+        <div class="title my-2">
+            <h3>Log</h3>
+        </div>
+        <div class="header_btn_container">
+            <div class="m-1" >
+                <button type="button" class="btn head_buttons btn-sm" onclick="leadModal()"  data-modal="add" style="color: rgb(255, 255, 255); background-color: rgb(83 175 79)">
+                    <span><i class="icon-copy dw dw-add"></i></span> <span class="ml-2">Add Log</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-header">
+        <div class="">
+            <div class="">
+                <div class="tab">
+                    <ul class="nav nav-pills" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link text-blue active" data-toggle="tab" href="#logToday" role="tab" aria-selected="false">Today</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-blue" data-toggle="tab" href="#logView" role="tab" aria-selected="false">View</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-blue adminLog" data-toggle="tab" href="#logManage" role="tab" aria-selected="true">Manage</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade active show" id="logToday" role="tabpanel">
+                            <div class="pd-20">
+                                <div id="logs_append_tag">
+                                    <div class="profile-timeline-list">
+                                        <ul id="today_log_append_list">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="logView" role="tabpanel">
+                            <div class="pd-20">
+                                <div id="logs_append_tag">
+                                    <div class="profile-timeline-list">
+                                        <div class=" pb-10">
+                                            <div class="row pb-10">
+                                                <div class="col-md-3 col-lg-2">
+                                                <div class="">
+                                                    <label class="">From Date</label>
+                                                    <div class="">
+                                                        <input type="date" name="" id="log_view_start_date" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                <div class="col-md-3 col-lg-2">
+                                                <div class="">
+                                                    <label class="">To Date</label>
+                                                    <div class="">
+                                                        <input type="date" name="" id="log_view_end_date" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                <div class="col-md-3">
+                                                <div class="">
+                                                    <div class="border-0 p-0 mt-4">
+                                                        <button class="btn btn-primary btn-sm" id="task_view_filter_btn" onclick="log_view_filter(this)">Filter</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <ul id="view_log_append_list">
+                                            <div class="no_record_img mt-5"><div><img src="/vendors/images/log_no_record.svg" alt=""></div><div>No Record</div></div>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade adminLog" id="logManage" role="tabpanel">
+                            <div class="pd-20">
+                                <div id="logs_append_tag">
+                                    <div class="profile-timeline-list">
+                                        <div class=" pb-10">
+                                            <div class="row pb-10">
+                                                <div class="col-md-3 col-lg-2">
+                                                    <div class="">
+                                                        <label class="">Select Name</label>
+                                                        <div class="">
+                                                            <select id="log_manage_name" class="custom-select px-2 w-100">
+                                                            <option value="All" selected="">All</option></select>
+                
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 col-lg-2">
+                                                <div class="">
+                                                    <label class="">Log Date</label>
+                                                    <div class="">
+                                                        <input type="date" name="" id="log_manage_date" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                <div class="col-md-3">
+                                                <div class="">
+                                                    <div class="border-0 p-0 mt-4">
+                                                        <button class="btn btn-primary btn-sm" id="task_view_filter_btn" onclick="log_manage_filter(this)">Filter</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <ul id="manage_log_append_list">
+                                            <div class="no_record_img mt-5"><div><img src="/vendors/images/log_no_record.svg" alt=""></div><div>No Record</div></div>
+                                        </ul>
+            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+<!-- ---------------------------- modify modal ----------------------------- -->
+
+
+<div class="modal fade" id="log_add_modal" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <di class="fw-bold modal_heade_text">Add Log</di>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="background-color: #ecf0f4;">
+                <form class=" page-header">
+                    <div class="form-group">
+                        <div class="form-group  py-2">
+                            <label>Log Info</label>
+                            <textarea class="form-control" id="logINF"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="btn btn-sm btn-primary" onclick="addLogFL(this)">Confirm</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

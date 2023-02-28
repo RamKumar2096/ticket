@@ -1,0 +1,141 @@
+.ticket_icons_container {
+  background: #ecf0f4;
+  padding: 1rem 0;
+}
+
+.ticket_action_icon {
+  width: 100px;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.tickets_actions_icons_list {
+  flex-wrap: wrap;
+}
+.ticket_action_icon:hover .ticket_cl_text {
+  color: green;
+}
+.ticket_cl_text {
+  font-size: 12px;
+  font-weight: 600;
+}
+.ticket_cl_icon > i {
+  font-size: 15px;
+  font-weight: 600;
+}
+.client_info_table_container {
+  max-height: 400px;
+  overflow: auto;
+}
+
+.filter_dateS {
+  background: white;
+  padding: 1rem;
+  position: absolute;
+  z-index: 12;
+  width: fit-content;
+  transform: translate(-5px, 5px);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border-radius: 5px;
+}
+/* 
+.ticket_icon_box {
+  max-height: 200px;
+  overflow: auto;
+} */
+
+.ticket_view_filter_button {
+  float: right;
+}
+
+.ticket_manage_filter_button {
+  float: right;
+}
+
+@media screen and (min-width: 300px) and (max-width: 599px) {
+  /* .ticket_action_icon {
+    width: 80px;
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  } */
+}
+
+@media screen and (max-width: 599px) {
+  .card_info_text {
+    font-size: 10px !important;
+  }
+  .ticket_cl_text {
+    font-size: 9px;
+    font-weight: 800;
+  }
+
+  .ticket_action_icon {
+    width: 80px;
+    padding: 0.2rem;
+    border-radius: 5px;
+  }
+
+  /* .select_label {
+    font-size: 10px !important;
+  } */
+
+  .ticket {
+    font-size: 14px !important;
+  }
+
+  .ticket_cl_icon > i {
+    font-size: 10px;
+    font-weight: 800;
+  }
+  .card_info_text {
+    font-size: 8px;
+  }
+
+  .card_label {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 599px) and (max-width: 759px) {
+  .ticket {
+    font-size: 14px !important;
+  }
+  .ticket_cl_text {
+    font-size: 10px;
+  }
+  .ticket_action_icon {
+    padding: 0.2rem;
+    border-radius: 5px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 890px) {
+  .ticket-status-box {
+    padding: 10px;
+    /* background-color: red !important; */
+  }
+  /* .ticket_cl_text {
+    font-size: 10px;
+  } */
+  .ticket_view_filter_button {
+    float: left;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .ticket_view_filter_button {
+    float: left;
+  }
+  .ticket_manage_filter_button {
+    float: right;
+  }
+}

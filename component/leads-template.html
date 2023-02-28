@@ -1,0 +1,1335 @@
+<div class="xs-pd-20-10 pd-ltr-20">
+
+    <div class="page-header">
+        <div class="title my-2">
+            <h3>Leads</h3>
+        </div>
+        <div class="header_btn_container">
+            <div class="m-1">
+                <button type="button" class="btn head_buttons btn-sm" data-modal="create" style="color: rgb(255, 255, 255); background-color: rgb(83 175 79)">
+                    <span>
+                        <i class="icon-copy dw dw-add"></i>
+                    </span>
+                    <span class="ml-2">Create Lead</span>
+                </button>
+            </div>
+            <!-- <div class="m-1 admin_c_tab" >
+                                                                                                                            <button type="button" class="btn head_buttons btn-sm" data-modal="assign"  style="color: rgb(255, 255, 255); background-color: rgb(38, 38, 134)">
+                                                                                                                                <span><i class="icon-copy dw dw-add"></i></span> <span class="ml-2">Assign Task</span>
+                                                                                                                            </button>
+                                                                                                                        </div> -->
+            <!-- <div class="m-1">
+                                                                                                                            <button type="button" class="btn head_buttons btn-sm" data-modal="preloader"  style="color: rgb(255, 255, 255); background-color: rgb(85, 93, 85)">
+                                                                                                                                <span><i class="icon-copy dw dw-add"></i></span> <span class="ml-2">Preloader Task</span>
+                                                                                                                            </button>
+                                                                                                                        </div> -->
+        </div>
+    </div>
+
+    <div class="page-header">
+        <div class="">
+            <div class="">
+                <div class="tab ">
+                    <ul class="nav nav-tabs customtab tab_container_box_header tab_list_container_status role=" tablist"=" tablist"=" tablist" ">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#dashboard_bg_tab" role="tab" aria-selected="true">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#assigned_bg_tab" role="tab" aria-selected="false">Assign</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#active_bg_tab" role="tab" aria-selected="false">Active</a>
+                        </li>
+                        <!-- <li class="nav-item admin_c_tab">
+                                                                                                                                                                                                                                                    <a class="nav-link" data-toggle="tab" href="#manage_bg_tab" role="tab" aria-selected="false"></a>
+                                                                                                                                                                                                                                                </li> -->
+                        <li class="nav-item admin_c_tab">
+                            <a class="nav-link" data-toggle="tab" href="#search_bg_tab" role="tab" aria-selected="false">Search</a>
+                        </li>
+                        <li class="nav-item admin_c_tab">
+                            <a class="nav-link" data-toggle="tab" href="#sitevisit_bg_tab" role="tab" aria-selected="false">Site Visit</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content tab_container_box">
+                        <div class="tab-pane fade show active" id="dashboard_bg_tab" role="tabpanel">
+                            <div>
+                                <div class="mb-10">
+                                    <div class="height-100-p pd-20 min-height-200px">
+                                        <div class=" pb-10">
+                                            <div class="row pb-10">
+                                                <div class="col-md-3 col-lg-2">
+                                                    <div class="">
+                                                        <label class="">Select Report</label>
+                                                        <div class="">
+                                                            <select id="lead_tele_dash_report_select" class="custom-select px-2 w-100">
+                                                                <option value="Daily Report" selected>Daily Report</option>
+                                                                <option value="Lead Target">Lead Target</option>
+                                                                <option value="Site visit Target">Site visit Target</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col mt-4">
+                                                    <button class="btn btn-primary btn-sm" id="task_manage_filter_btn" onclick="lead_tele_dashboard_fitler()">Filter</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row two_tab_conatainer">
+                                            <div class="col-md-8 mb-10 tab_count_box_card rounded">
+                                                <div class=" height-100-p">
+                                                    <div class="user-list">
+                                                        <ul class="p-2" id="dashboard_card_list_container">
+                                                            <div class="dashboard_container_sub_bx ">
+                                                                <div class="pd-20 ">
+                                                                    <div class="clearfix mb-20">
+                                                                        <div class="pull-left">
+                                                                            <h4 class="text-success h4">DAILY LEAD REPORT</h4>
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <table class="table table-striped ">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th scope="col">Status</th>
+                                                                                <th scope="col">Worked</th>
+                                                                                <th scope="col">Total</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr class="fresh_leads_report">
+                                                                                <th scope="row">Fresh Lead</th>
+                                                                                <td>0</td>
+                                                                                <td>0</td>
+                                                                            </tr>
+                                                                            <tr class="hot_leads_report">
+                                                                                <th scope="row">Hot Leads</th>
+                                                                                <td>0</td>
+                                                                                <td>0</td>
+                                                                                
+                                                                            </tr>
+                                                                            <tr class="warm_leads_report">
+                                                                                <th scope="row">Warm Leads</th>
+                                                                                <td>0</td>
+                                                                                <td>0</td>
+                                                                                
+                                                                            </tr>
+                                                                            <tr class="cold_leads_report">
+                                                                                <th scope="row">Cold Leads</th>
+                                                                                <td>0</td>
+                                                                                <td>0</td>
+                                                                                
+                                                                            </tr>
+                                                                            <tr class="reenquired_leads_report">
+                                                                                <th scope="row">Re Enquired Leads</th>
+                                                                                <td>0</td>
+                                                                                <td>0</td>
+                                                                                
+                                                                            </tr>
+                                                                            
+                                                                            <tr class="sitevisitscheduled_leads_report">
+                                                                                <th scope="row">Site Visit Scheduled Leads</th>
+                                                                                <td>0</td>
+                                                                                <td>0</td>
+                                                                                
+                                                                            </tr>
+                                                                            <tr class="sitevisitcompleted_leads_report">
+                                                                                <th scope="row">Site Visit Completed Leads</th>
+                                                                                <td>0</td>
+                                                                                <td>0</td>
+                                                                            </tr>
+                                                                            <tr class="dead_leads_report">
+                                                                                <th scope="row">Dead Leads</th>
+                                                                                <td>0</td>
+                                                                                <td>0</td>
+                                                                                
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                            
+                                                                </div>
+
+                                                            </div>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-4">
+                                                <div class="card-box min-height-200px pd-20 tab_count_box_card" data-bgcolor="#265ed7">
+                                                    <div>
+                                                        <div class="pd-20  height-100-p">
+                                                            <h4 class="mb-20 h4">Call list status</h4>
+                                                            <ul class="list-group">
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    ANSWERED (IN)
+                                                                    <span class="badge text-white bg-dark badge-pill calling_count_answare_in ">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    MISSED CALL (IN)
+                                                                    <span class="badge text-white bg-dark badge-pill calling_count_missed_in ">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    ANSWERED (OUT)
+                                                                    <span class="badge text-white bg-dark badge-pill calling_count_answare_out ">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    NOT ANSWERED (OUT)
+                                                                    <span class="badge text-white bg-dark badge-pill calling_count_not_answare_out">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                   TOTAL CALLS
+                                                                    <span class="badge text-white bg-dark badge-pill calling_count_total">0</span>
+                                                                </li>
+                                                                
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="assigned_bg_tab" role="tabpanel">
+                            <div>
+                                <div class="mb-10">
+                                    <div class="height-100-p pd-20 min-height-200px">
+                                        <div class=" pb-10">
+                                            <div id="add_assigned_filter_project" class="d-flex">
+
+                                            </div>
+                                            <div class="row pb-10">
+                                                <div class="col-md-3 col-lg-2">
+                                                    <div class="">
+                                                        <label class="">Main source</label>
+                                                        <div class="">
+                                                            <select id="leads_assign_tele_main_src" class="custom-select px-2 w-100 main_src_select_wd" data-base-sub="#leads_assign_tele_sub_src" data-select-type="with" onchange="select_main_src_set_sub(this)"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 col-lg-2">
+                                                    <div class="">
+                                                        <label class="">Sub source</label>
+                                                        <div class="">
+                                                            <select id="leads_assign_tele_sub_src" class="custom-select px-2 w-100">
+                                                                <option value="All" selected>All</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 col-lg-2">
+                                                    <div class="">
+                                                        <label class="">Client Status</label>
+                                                        <div class="">
+                                                            <select id="leads_assign_tele_client_status" class="custom-select px-2 w-100">
+                                                                <option value="All">All</option>
+                                                                <option value="Cold">Cold</option>
+                                                                <option value="Warm">Warm</option>
+                                                                <option value="Hot">Hot</option>
+                                                                <option value="Re-Enquired">Re-Enquired</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 col-lg-2 position-relative">
+                                                    <div class="">
+                                                        <label class="">Card Status</label>
+                                                        <div class="">
+                                                            <select id="leads_assign_tele_card_status" class="custom-select px-2 w-100" onchange="filterCTab(this)">
+                                                                <option value="All">All</option>
+                                                                <option value="Pending">Pending</option>
+                                                                <option value="Scheduling">Scheduling</option>
+                                                                <option value="Missed">Missed</option>
+                                                                <option value="Custom">Custom</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="filter_dateS" style="display: none;">
+                                                        <div class="">
+                                                              <div class="">
+                                                                  <label class="">From Date</label>
+                                                                  <div class="">
+                                                                      <input type="date" class="form-control" name="" id="leads_assign_tele_card_start_date"></div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="">
+                                                              <div class="">
+                                                                  <label class="">To Date</label>
+                                                                  <div class="">
+                                                                      <input type="date" name="" id="leads_assign_tele_card_end_date" class="form-control"></div>
+                                                              </div>
+                                                          </div>
+                                                          </div>
+                                                </div>
+                                                
+                                                
+                                                <div class="col mt-4">
+                                                    <button class="btn btn-primary btn-sm" id="task_manage_filter_btn" onclick="leads_assign_tele_filter()">Filter</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row two_tab_conatainer">
+                                            <div class="col-md-8 mb-10">
+                                                <div class=" height-100-p">
+                                                    <div class="user-list">
+                                                        <ul class="p-2" id="assigned_card_list_container"></ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-4">
+                                                <div class="card-box min-height-200px pd-20 tab_count_box_card" data-bgcolor="#265ed7">
+                                                    <div>
+                                                        <div class="pd-20 height-100-p">
+                                                            <h4 class="mb-20 h4">Assign Tab Card Status</h4>
+                                                            <ul class="list-group mb-4">
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center ">
+                                                                Missed Calls
+                                                                    <span class="badge text-white bg-dark badge-pill status_count_s_missed">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center ">
+                                                                  Pending
+                                                                    <span class="badge text-white bg-dark badge-pill status_count_s_pending">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    Scheduling
+                                                                    <span class="badge text-white bg-dark  badge-pill status_count_s_scheduling">0</span>
+                                                                </li>
+                                                            </ul>
+                                                            <h4 class="mb-20 h4">Assign Tab Client Status</h4>
+                                                            <ul class="list-group">
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center ">
+                                                                    Warm
+                                                                    <span class="badge text-white bg-dark badge-pill status_count_s_warm">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    Cold
+                                                                    <span class="badge text-white bg-dark  badge-pill status_count_s_cold">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    Hot
+                                                                    <span class="badge text-white bg-dark badge-pill status_count_s_hot">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    Re-Enquired
+                                                                    <span class="badge text-white bg-dark badge-pill status_count_s_reenquired">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                   Total
+                                                                    <span class="badge text-white bg-dark badge-pill status_count_s_total">0</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="active_bg_tab" role="tabpanel">
+                            <div>
+                                <div class="mb-10">
+                                    <div class="height-100-p pd-20 min-height-200px">
+                                        <div class=" pb-10">
+                                            <div id="add_active_filter_project" class="d-flex"></div>
+                                            <div class="row pb-10">
+                                                <div class="col-md-3 col-lg-2">
+                                                    <div class="">
+                                                        <label class="">Main source</label>
+                                                        <div class="">
+                                                            <select id="leads_active_tele_main_src" class="custom-select px-2 w-100 main_src_select_wd" data-base-sub="#leads_active_tele_sub_src" data-select-type="with" onchange="select_main_src_set_sub(this)" >
+        
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 col-lg-2">
+                                                    <div class="">
+                                                        <label class="">Sub source</label>
+                                                        <div class="">
+                                                            <select id="leads_active_tele_sub_src" class="custom-select px-2 w-100">
+                                                                <option value="All">All</option>
+                                                            
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 col-lg-2 ">
+                                                    <div class="">
+                                                        <label class="">Client Status</label>
+                                                        <div class="">
+                                                            <select id="leads_active_tele_client_status" class="custom-select px-2 w-100">
+                                                                <option value="All">All</option>
+                                                                <option value="Cold">Cold</option>
+                                                                <option value="Warm">Warm</option>
+                                                                <option value="Hot">Hot</option>
+                                                                <option value="Re-Enquired">Re-Enquired</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 col-lg-2 position-relative">
+                                                    <div class="">
+                                                        <label class="">Card Status</label>
+                                                        <div class="">
+                                                            <select id="leads_active_tele_card_status" class="custom-select px-2 w-100" onchange="filterCTab(this)">
+                                                                <option value="All">All</option>
+                                                                <option value="Pending">Pending</option>
+                                                                <option value="Scheduling">Scheduling</option>
+                                                                <option value="Missed">Missed</option>
+                                                                <option value="Custom">Custom</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="filter_dateS" style="display: none;">
+                                                        <div class="">
+                                                              <div class="">
+                                                                  <label class="">From Date</label>
+                                                                  <div class="">
+                                                                      <input type="date" class="form-control" name="" id="leads_active_tele_card_start_date"></div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="">
+                                                              <div class="">
+                                                                  <label class="">To Date</label>
+                                                                  <div class="">
+                                                                      <input type="date" name="" id="leads_active_tele_card_end_date" class="form-control"></div>
+                                                              </div>
+                                                          </div>
+                                                          </div>
+                                                </div>
+                                                
+                                                <div class="col mt-4">
+                                                    <button class="btn btn-primary btn-sm" id="task_manage_filter_btn" onclick="leads_active_tele_filter()">Filter</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row two_tab_conatainer">
+                                            <div class="col-md-8 mb-10">
+                                                <div class=" height-100-p">
+                                                    <div class="user-list">
+                                                        <ul class="p-2" id="active_card_list_container">
+                                                            <div class="no_record_img mt-5">
+                                                                <div>
+                                                                    <img src="/vendors/images/no_data.svg" alt=""></div>
+                                                                <div>No Record</div>
+                                                            </div>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-4">
+                                                <div class="card-box min-height-200px pd-20 tab_count_box_card" data-bgcolor="#265ed7">
+                                                    <div>
+                                                        <div class="pd-20  height-100-p">
+                                                            <h4 class="mb-20 h4">Active Tab Card Status</h4>
+                                                            <ul class="list-group mb-4">
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center ">
+                                                                Missed Call
+                                                                    <span class="badge text-white bg-dark badge-pill active_count_list_missed">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center ">
+                                                                  Pending
+                                                                    <span class="badge text-white bg-dark badge-pill active_count_list_pending">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    Scheduling
+                                                                    <span class="badge text-white bg-dark  badge-pill active_count_list_scheduling">0</span>
+                                                                </li>
+                                                            </ul>
+                                                            <h4 class="mb-20 h4">Active Tab Client Status</h4>
+                                                            <ul class="list-group">
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center  ">
+                                                                   Warm
+                                                                    <span class="badge text-white bg-dark badge-pill active_count_list_warm">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                   Cold
+                                                                    <span class="badge text-white bg-dark  badge-pill active_count_list_cold">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                  Hot
+                                                                    <span class="badge text-white bg-dark badge-pill active_count_list_hot">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    Re-Enquired
+                                                                    <span class="badge text-white bg-dark  badge-pill active_count_list_reenquired">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                 Total
+                                                                    <span class="badge text-white bg-dark  badge-pill active_count_list_total">0</span>
+                                                                </li>
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+                        <div class="tab-pane fade" id="search_bg_tab" role="tabpanel">
+                            <div>
+                                <div class="mb-10">
+                                    <div class="height-100-p pd-20 min-height-200px">
+                                        <div class="">
+                                            <div class="d-flex justify-content-between pb-10">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="mx-2">
+                                                        <div class="">
+                                                            <div class="">
+                                                                <select id="tele_search_type" class="custom-select">
+                                                                    <option value="number" selected>Number</option>
+                                                                    <option value="clientname">Client Name</option>
+                                                                    <option value="email">Email Id</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="">
+                                                        <!-- <label class="">Select Name</label> -->
+                                                        <div class="">
+                                                           <input type="search" class="form-control form-control-lg" id="tele_search_value" placeholder="Search....">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <button class="btn btn-success btn-sm" id="task_manage_filter_btn" onclick="tele_search_lead(this)">Search</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row two_tab_conatainer">
+                                            <div class="col-md-8 mb-10">
+                                                <div class=" height-100-p">
+                                                    <div class="user-list">
+                                                        <ul class="p-2" id="search_card_list_container"></ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-md-4 mb-4 ">
+                                                <div class="card-box min-height-200px pd-20 tab_count_box_card" data-bgcolor="#265ed7">
+                                                    <div>
+                                                        <div class="pd-20  height-100-p">
+                                                            <h4 class="mb-20 h4">Task Status List</h4>
+                                                            <ul class="list-group">
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    Awaiting Approval
+                                                                    <span class="badge text-dark  badge-pill approval_count_list_awaiting_approval">0</span>
+                                                                </li>
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="sitevisit_bg_tab" role="tabpanel">
+                            <div>
+                                <div class="mb-10">
+                                    <div class="height-100-p pd-20 min-height-200px">
+                                        <div class=" pb-10">
+                                            <div class="row pb-10">
+                                                <div class="col-md-3 col-lg-2">
+                                                    <div class="">
+                                                        <label class="">Status</label>
+                                                        <div class="">
+                                                            <select id="tele_site_filter_type" class="custom-select">
+                                                                <option value="All" selected>All</option>
+                                                                <option value="Site Visit Scheduled">Site Visit Scheduled</option>
+                                                                <option value="Site Visit Completed">Site Visit Completed</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                 <div class="col-md-3 col-lg-2">
+                                                    <div class="">
+                                                        <label class="">From Date</label>
+                                                        <div class="">
+                                                            <input type="date" class="form-control" name="" id="sitevisit_filter_start_date"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 col-lg-2">
+                                                    <div class="">
+                                                        <label class="">To Date</label>
+                                                        <div class="">
+                                                            <input type="date" name="" id="sitevisit_filter_end_date" class="form-control"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3 mt-4">
+                                                    <div class="border-0 p-0">
+                                                        <button class="btn btn-primary btn-sm" id="task_managing_filter_btn" onclick="tele_sitevisti_fitler()">Filter</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row two_tab_conatainer">
+                                            <div class="col-md-8 mb-10">
+                                                <div class=" height-100-p">
+                                                    <div class="user-list">
+                                                        <ul class="p-2" id="sitevisit_card_list_container">
+                                                            <div class="no_record_img mt-5">
+                                                                <div>
+                                                                    <img src="/vendors/images/no_data.svg" alt=""></div>
+                                                                <div>No Record</div>
+                                                            </div>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-4">
+                                                <div class="card-box min-height-200px pd-20 tab_count_box_card" data-bgcolor="#265ed7">
+                                                    <div>
+                                                        <div class="pd-20  height-100-p">
+                                                            <h4 class="mb-20 h4">Site visit List</h4>
+                                                            <ul class="list-group">
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center  ">
+                                                                  Site Visit Scheduled
+                                                                    <span class="badge text-white bg-dark badge-pill sitevisit_count_list_sitevisitscheduled">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    Site visit completed
+                                                                    <span class="badge text-white bg-dark  badge-pill sitevisit_count_list_sitevisitcompleted">0</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL TABS -->
+    <div class="modal fade" id="create_leads_modal" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered  modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <di class="fw-bold modal_heade_text">Create Lead</di>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="background-color: #eee;">
+                    <form id="create_leads_modal_form" class="form_containers">
+                        <div class="profile-setting">
+
+                            <ul class="profile-edit-list row p-0">
+                                <!-- <code class="text-danger" >mandatory  asdlfadlsfjasdf alsdkfadlsfjlasdf ladsflads;</code> -->
+                                <li class="weight-500 col-md-6">
+                                    <div class="form-group">
+                                        <label name="client_name">Client Name <span class="text-danger">*</span></label>
+                                        <input class="form-control form-control-lg" name="client_name" type="text"></div>
+                                    <div class="form-group">
+                                        <label>Std / ISD Code - 1 <span class="text-danger">*</span></label>
+                                        <input class="form-control form-control-lg" name="isd_1" type="number" ></div>
+                                    <div class="form-group position-relative">
+                                        <div style="position: absolute;right: 0;top: 0;" class="contactSpin d-none">
+                                        <div class="spinner-border text-success" role="status" style="width: 20px;height: 20px;">
+                                            <span class="sr-only">Loading...</span>
+                                          </div>
+                                        </div>
+                                        <label>Contact No - 1 <span class="text-danger">*</span></label>
+                                        <input class="form-control form-control-lg" name="phone_1" type="number" data-type="number" onblur="findContactNumber(this)"></div>
+                                    <div class="form-group">
+                                        <label>Std / ISD Code - 2
+                                            <small>(optional)</small>
+                                        </label>
+                                        <input class="form-control form-control-lg" name="isd_2" type="number"></div>
+                                    <div class="form-group position-relative">
+                                        <div style="position: absolute;right: 0;top: 0;"  class="contactSpin d-none">
+                                        <div class="spinner-border text-success" role="status" style="width: 20px;height: 20px;">
+                                            <span class="sr-only">Loading...</span>
+                                          </div>
+                                        </div>
+                                        <label>Contact No - 2
+                                            <small>(optional)</small>
+                                        </label>
+                                        <input class="form-control form-control-lg" name="phone_2" type="number" data-type="number" onblur="findContactNumber(this)"></div>
+                                    <div class="form-group">
+                                        <label>Email -1 </label>
+                                        <input class="form-control form-control-lg" name="email_1" type="email" data-type="email"></div>
+                                    <div class="form-group">
+                                        <label>Email - 2 
+                                            <small>( optional )</small>
+                                        </label>
+                                        <input class="form-control form-control-lg" name="email_2" type="email"></div>
+
+                                    <div class="form-group m-0">
+                                        <label>Project <span class="text-danger">*</span></label>
+                                        <div class="d-flex" id="add_leads_project">
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Budget range <span class="text-danger">*</span></label>
+                                        <select class="custom-select col-12 budget_sel" name="budg">
+                                           
+                                            
+                                        </select>
+                                    </div>
+
+                                </li>
+                                <li class="weight-500 col-md-6">
+
+                                    <div class="form-group">
+                                        <label>Type <span class="text-danger">*</span></label>
+                                        <select class="custom-select col-12 type_sel" name="type" data-sq="#sq_2" onchange="type_base(this)">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Square feet <span class="text-danger">*</span></label>
+                                        <select class="custom-select col-12" name="squ" id="sq_2">
+                                            <option selected="selected" value="">Choose...</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Main Source - 1 <span class="text-danger">*</span></label>
+                                        <select class="custom-select col-12 main_src_ww" name="main_src_1" data-base-sub="#add_lead_sub_1" data-select-type="without" onchange="select_main_src_set_sub(this)">
+                                            <option selected value="">Choose...</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Sub Source - 1 <span class="text-danger">*</span></label>
+                                        <select class="custom-select col-12" name="sub_src_1" id="add_lead_sub_1">
+                                            <option selected="selected" value="">Choose...</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Main Source - 2
+                                            <small>( optional )</small>
+                                        </label>
+                                        <select class="custom-select col-12 main_src_ww" name="main_src_2" data-base-sub="#add_lead_sub_2"  data-select-type="without" onchange="select_main_src_set_sub(this)">
+                                            <option selected="selected" value="">Choose...</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Sub Source - 2
+                                            <small>( optional )</small>
+                                        </label>
+                                        <select class="custom-select col-12" name="sub_src_2" id="add_lead_sub_2">
+                                            <option selected="selected" value="">Choose...</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Client Status <span class="text-danger">*</span></label>
+                                        <select class="custom-select col-12" name="client_status" onchange="enablE_client(this)">
+                                            <option selected="selected" value="">Choose...</option>
+                                            <option value="Warm">Warm</option>
+                                            <option value="Cold">Cold</option>
+                                            <option value="Hot">Hot</option>
+                                            <option value="Dead">Dead</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group base_cs hD_element" style="display: none;">
+                                        <label>FollowUp Date <span class="text-danger">*</span></label>
+                                        <input class="form-control form-control-lg" name="followUpdate_date" type="date" onchange="checkPreDate(this)"></div>
+                                        <div class="base_cs hD_element"  style="display: none;">
+                                            <div>
+                                                <div class="form-group">
+                                                    <label class=" col-form-label">Dead Remark <span class="text-danger">*</span></label>
+                                                    <div class="">
+                                                        <select class="custom-select col-12 dead_rm" name="dead_remarks" data-loc=".loeDD" onchange="dead_lo(this)"></select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group loeDD hD_element" style="display: none;">
+                                                    <label class=" col-form-label">Location <span class="text-danger">*</span></label>
+                                                    <div class="">
+                                                        <select class="custom-select col-12 dead_location_pole" name="dead_location_pole" onchange="base_location(this)" ></select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group loeDD hD_element" style="display: none;">
+                                                    <label class=" col-form-label">Location <span class="text-danger">*</span></label>
+                                                    <div class="">
+                                                        <select class="custom-select col-12 dead_location" name="dead_location">
+                                                            <option selected value="">Choose...</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    <div class="form-group">
+                                        <label>Remarks <span class="text-danger">*</span></label>
+                                        <textarea class="form-control h-auto" name="remarks"></textarea>
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </form>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-sm"  id="leadCreatBtn" onclick="create_leads(this)">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+
+   
+
+    <!-- ---------------------------- modify modal ----------------------------- -->
+
+
+    <div class="modal fade" id="lead_conversations_modity_modal" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <di class="fw-bold modal_heade_text">Conversations</di>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="background-color: #ecf0f4;">
+                    <div>
+                        <div class="p-2 chat_CS  ">
+                            <div class=" h-100">
+                                <div class="chat_container ">
+                                    <div class="chat_box_container ">
+                                        <div
+                                            class="chat_box  ">
+                                            <!-- <div class="chat_box_header">Chat</div> -->
+                                            <div class="chat_box_body ">
+                                                <div class="chat_box_content ">
+                                                    <div class="chat_box_messages ">
+                                                        <div class="chat_append">
+                                                            <div class="w-100 h-100 d-flex align-items-center justify-content-center no_chat_template p-4">
+                                                                <div class="w-50 h-50 text-center">
+                                                                    <div>
+                                                                        <img src="https://drive.google.com/uc?export=view&amp;id=10hd-GQbTgi1T06vvGF5_SGuSs_pqYLva" alt="" width="50%" height="50%"></div>
+                                                                    <div class="no_chat_text my-2">
+                                                                        <h6>No Record</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="chat_input_box_cC">
+                                                        <div class="d-flex align-items-center justify-content-around">
+                                                            <div class="input_chat_box chat_box_input w-75 position-relative">
+                                                                <div class="spinner-border text-success chat_spinner" role="status" style="display:none;">
+                                                                    <span class="sr-only">Loading...</span>
+                                                                </div>
+                                                                <div class="input_st chatValue" contenteditable="true" disabled="true" onkeyup="leadenterChatKey(this)"></div>
+                                                            </div>
+                                                            <div class="chat_box_send" onclick="leadChat()">
+                                                                <i class="icon-copy dw dw-paper-plane1"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="lead_brochure_modity_modal" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <di class="fw-bold modal_heade_text">Send brochure</di>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="background-color: #ecf0f4;">
+
+                    <div class="tab">
+                        <ul class="nav nav-pills" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active text-blue" data-toggle="tab" href="#whatsapp_bro" role="tab" aria-selected="true">
+                                    <i class="icon-copy bi bi-whatsapp"></i>
+                                    Whats app</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-blue" data-toggle="tab" href="#email_bro" role="tab" aria-selected="false">
+                                    <i class="icon-copy bi bi-envelope-fill"></i>
+                                    Mail</a>
+                            </li>
+
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="whatsapp_bro" role="tabpanel">
+                                <form class="leads_modifty_modal_form page-header mt-3">
+                                    <div class="my-3">
+                                        <div class="">
+                                            <label class="weight-600">Send To</label>
+                                            <div id="send_br_num_ap">
+
+                                            </div>
+                                    
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3" hidden>
+                                        <div class="">
+                                            <label class="weight-600">Type of message</label>
+                                            <div class="custom-control custom-radio mb-5">
+                                                <input type="radio" id="ms-1" name="typeOfmessage" class="custom-control-input sendTypeMessage" value="auto" checked>
+                                                <label class="custom-control-label" for="ms-1">Default Message</label>
+                                            </div>
+                                            <!-- <div class="custom-control custom-radio mb-5">
+                                                <input type="radio" id="ms-2" name="typeOfmessage" class="custom-control-input sendTypeMessage" value="customs">
+                                                <label class="custom-control-label" for="ms-2">Customs Message</label>
+                                            </div> -->
+                                            <!-- <div class="form-group border-top py-2">
+                                                <label>Message</label>
+                                                <textarea class="form-control whatsapp_customs_msgg"></textarea>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </form>
+                                <div>
+                                    <button class="btn btn-sm btn-success" onclick="sendWhatsapp(this)">Send</button>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="email_bro" role="tabpanel">
+                                <div>
+                                    <form class="leads_modifty_modal_form page-header mt-3">
+                                        <div class="my-3">
+                                            <div class="">
+                                                <label class="weight-600">Send To</label>
+                                                <div id="send_br_email_ap">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                    <div>
+                                        <button class="btn btn-sm btn-success" onclick="sendEmail(this)">Send</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="lead_addinfo_modity_modal" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <di class="fw-bold modal_heade_text">Add Info</di>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="background-color: #ecf0f4;">
+                    <form class="leads_modifty_modal_form page-header" id="add_info_form">
+                        <div class="form-group ">
+                            <label class=" col-form-label">Client Name</label>
+                            <div class="">
+                                <input class="form-control" type="text" name="client_name_info"></div>
+                        </div>
+                        <div class="form-group ">
+                            <label class=" col-form-label">Std / ISD Code</label>
+                            <div class="">
+                                <input class="form-control" type="number" name="client_isd_info"></div>
+                        </div>
+                        <div class="form-group ">
+                            <label class=" col-form-label">Phone Number</label>
+                            <div class="">
+                                <input class="form-control" type="number" name="client_number_info"></div>
+                        </div>
+                        <div class="form-group ">
+                            <label class=" col-form-label">Email Id</label>
+                            <div class="">
+                                <input class="form-control" type="email" name="client_email_info"></div>
+                        </div>
+                        <div class="form-group m-0">
+                            <label>Project</label>
+                            <div class="d-flex" id="add_info_project">
+                                
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class=" col-form-label">Budget range</label>
+                            <div class="">
+                                <select class="custom-select col-12 budget_sel" name="bdg_info">
+                                    <option selected="">Choose...</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class=" col-form-label">Type</label>
+                            <div class="">
+                                <select class="custom-select col-12 type_sel" name="type_info" data-sq="#sq_add" onchange="type_base(this)">
+                                    <option selected="">Choose...</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class=" col-form-label">Square feet</label>
+                            <div class="">
+                                <select class="custom-select col-12" name="sql_info" id="sq_add">
+                                    <option selected value="">Choose...</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" onclick="leadsAddInfo(this)">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="lead_complete_modity_modal" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <di class="fw-bold modal_heade_text">Completed</di>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="background-color: #ecf0f4;">
+
+                    <div class="p-2 card-box">
+                        <div class="tab">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active text-blue" data-toggle="tab" href="#callingTab" role="tab" aria-selected="true">Status</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-blue" data-toggle="tab" href="#callingRemark" role="tab" aria-selected="false">Remark</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="callingTab" role="tabpanel">
+                                    <div>
+                                        <form class="leads_modifty_modal_form page-header" id="completeForm">
+                                            <div class="form-group ">
+                                                <label class=" col-form-label">Card Status</label>
+                                                <div class="">
+                                                    <select class="custom-select col-12" onchange="complete_select_status(this)" name="status">
+                                                        <option selected value="">Choose...</option>
+                                                        <option value="Site visit">Site visit</option>
+                                                        <option value="Reschedule">Reschedule</option>
+                                                        <option value="Dead">Dead</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="dy_base_box_completed" id="complete_card_sitevisit" style="display: none;">
+                                                <div class="form-group ">
+                                                    <label class=" col-form-label">Site visit Date</label>
+                                                    <div class="">
+                                                        <input class="form-control" type="date" name="sitevisit_date" oncanplay="checkPreDate(this)"></div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <label class=" col-form-label">Site visit Time</label>
+                                                    <div class="">
+                                                        <input class="form-control" type="time" name="sitevisit_time"></div>
+                                                </div>
+                                                <div class="custom-control custom-checkbox py-2 border-top">
+                                                    <input type="checkbox" class="custom-control-input cab_chec_cls " onchange="oncab(this)" name="cab_cbox" value="Booked" id="add_cab_1">
+                                                    <label class="custom-control-label weight-400" for="add_cab_1">Cab Book</label>
+                                                </div>
+                                                <div class="cab_details_form dy_base_box_completed" style="display: none;">
+                                                    <div class="form-group ">
+                                                        <label class=" col-form-label">Address</label>
+                                                        <div class="">
+                                                            <input class="form-control" type="text" name="cab_address"></div>
+                                                    </div>
+                                                    <div class="form-group ">
+                                                        <label class=" col-form-label">Land Mark</label>
+                                                        <div class="">
+                                                            <input class="form-control" type="text" name="cab_land_mark"></div>
+                                                    </div>
+                                                    <div class="form-group ">
+                                                        <label class=" col-form-label">Map Link</label>
+                                                        <div class="">
+                                                            <input class="form-control" type="url" name="cab_maplink"></div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class=" col-form-label">Number of Members</label>
+                                                        <div class="">
+                                                            <input class="form-control" type="number" name="cab_member"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="dy_base_box_completed" id="complete_card_dead" style="display: none;">
+                                                <div class="form-group ">
+                                                    <label class=" col-form-label">Dead Remark</label>
+                                                    <div class="">
+                                                        <select class="custom-select col-12 dead_rm" name="complete_dead_remark" data-loc=".locAde" onchange="dead_lo(this)"></select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group locAde" style="display: none;">
+                                                    <label class=" col-form-label">Location</label>
+                                                    <div class="">
+                                                        <select class="custom-select col-12 dead_location_pole" name="complete_dead_location_r1" onchange="base_location(this)" ></select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group locAde" style="display: none;">
+                                                    <label class=" col-form-label">Location</label>
+                                                    <div class="">
+                                                        <select class="custom-select col-12 dead_location" name="complete_dead_location_r2">
+                                                            <option selected value="">Choose...</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="dy_base_box_completed" id="complete_card_reschedule" style="display: none;">
+                                                <div class="form-group ">
+                                                    <label class=" col-form-label">Reschdule Date</label>
+                                                    <div class="">
+                                                        <input class="form-control" type="date" name="complete_rescheudle_date" onchange="checkPreDate(this)"></div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <label class=" col-form-label">Client Status</label>
+                                                    <div class="">
+                                                        <select class="custom-select col-12" name="complete_reschedule_status">
+                                                            <option selected value="">Choose...</option>
+                                                            <option value="Cold">Cold</option>
+                                                            <option value="Warm">Warm</option>
+                                                            <option value="Hot">Hot</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <label class=" col-form-label">Reminder</label>
+                                                <div class="">
+                                                    <select class="custom-select col-12" name="calling_remainder">
+                                                        <option selected value="">No</option>
+                                                        <option value="1">1Hr</option>
+                                                        <option value="2">2Hr</option>
+                                                        <option value="3">3Hr</option>
+                                                        <option value="4">4Hr</option>
+                                                        <option value="5">5Hr</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group border-top py-2">
+                                                <label>Remark</label>
+                                                <textarea class="form-control" name="complete_remark"></textarea>
+                                            </div>
+                    
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="callingRemark" role="tabpanel">
+                                    <div class="pd-20">
+                                        <div class="remarkClientView px-2">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-sm" id="assign_task_confirm_btn" onclick="lead_complete_func(this)">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- 
+    <div class="modal fade" id="lead_call_modity_modal" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <di class="fw-bold modal_heade_text">Calling...</di>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="background-color: #ecf0f4;">
+                    <div class="p-2 card-box">
+                        <div class="tab">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active text-blue" data-toggle="tab" href="#callingTab" role="tab" aria-selected="true">Calling Status</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-blue" data-toggle="tab" href="#callingRemark" role="tab" aria-selected="false">Remark</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="callingTab" role="tabpanel">
+                                    <div>
+                                        <form class=" page-header leads_modifty_modal_form" id="call_leads_modal_form">
+                                            <div class="form-group">
+                                                <label>Client Name</label>
+                                                <input class="form-control call_name" type="text" disabled></div>
+                                                <div class="form-group">
+                                                    <label>Phone Number</label>
+                                                    <input class="form-control  call_number" type="text" disabled></div>
+                                            <div class="form-group ">
+                                                <label class=" col-form-label">Call Status</label>
+                                                <div class="">
+                                                    <select class="custom-select col-12" name="calling_status_se">
+                                                        <option selected value="">Choose...</option>
+                                                        <option value="RNR">RNR</option>
+                                                        <option value="Connected">Connected</option>
+                                                        <option value="Not Connected">Not Connected</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <label class=" col-form-label">Reminder</label>
+                                                <div class="">
+                                                    <select class="custom-select col-12" name="calling_remainder">
+                                                        <option selected value="">No</option>
+                                                        <option value="1">1Hr</option>
+                                                        <option value="2">2Hr</option>
+                                                        <option value="3">3Hr</option>
+                                                        <option value="4">4Hr</option>
+                                                        <option value="5">5Hr</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group border-top py-2">
+                                                <label>Remark</label>
+                                                <textarea class="form-control" name="calling_remark"></textarea>
+                                            </div>
+                                            <div class="custom-control custom-checkbox mb-5">
+                                                <input type="checkbox" class="custom-control-input calling_check " name="project_name" value="Recall" id="calling_c">
+                                                <label class="custom-control-label weight-400" for="calling_c">ReCall</label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="callingRemark" role="tabpanel">
+                                    <div class="pd-20">
+                                        <div class="remarkClientView px-2">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div> 
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-sm" id="assign_task_confirm_btn" onclick="lead_call_status(this)">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+
+
+
+    <div class="modal fade" id="lead_visited_modity_modal" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <di class="fw-bold modal_heade_text">Site visit completed</di>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="background-color: #ecf0f4;">
+                    <form class="siteCompletedForm page-header">
+                        <div class="form-group">
+                            <label>Client Name</label>
+                            <input class="form-control sitevisitCompleteClient" type="text"  readonly="">
+                        </div>
+                        <div class="form-group">
+                            <label>Site Visit Schedule Date</label>
+                            <input class="form-control  sitevisitScheduleData" type="text"  readonly="">
+                        </div>
+                        <div class="form-group ">
+                            <label class=" col-form-label">Clien Status</label>
+                            <div class="">
+                                <select class="custom-select col-12" id="completeSelectStatus" onchange="sitevisitSTS(this)" >
+                                    <option selected value="">Choose...</option>
+                                    <option value="Site Visit Completed">Site Visit Completed</option>
+                                    <option value="Cold">Cold</option>
+                                    <option value="Warm">Warm</option>
+                                    <option value="Hot">Hot</option>
+                                    <option value="Dead">Dead</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="compleateSV_base" id="svComplete_sitevisitcompleted" style="display: none;">
+                            <div class="form-group">
+                                <label>Site Visit Completed Date</label>
+                                <input class="form-control" id="siteCDate"  type="date">
+                            </div>
+                        </div>
+                        <div class="compleateSV_base" id="svComplete_reschedule" style="display: none;">
+                            <div class="form-group">
+                                <label>Reschedule Date</label>
+                                <input class="form-control" id="rescheCDate" onchange="checkPreDate(this)" type="date">
+                            </div>
+                        </div>
+                        <div class="form-group border-top py-2">
+                            <label>Remark</label>
+                            <textarea class="form-control" id="siteComRemark"></textarea>
+                        </div>
+                        <!-- <div class="form-group">
+                            <label>Task Info</label>
+                            <input class="form-control " type="text"  readonly="">
+                        </div> -->
+                    </form>
+                    <div class="modal-footer">
+                        <button class="btn btn-sm btn-primary" onclick="sitevisitCompleteDD(this)">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+    
+    <!-- Modal -->
+    <div id="daileContainer" style="display: none;" data-active="false"  class="dial-pad-wrap">
+        
+    </div>
+    <div class="text-center mt-2" style="position: fixed;bottom: 5%;right: 5%;">
+        <button  onclick="showManualDailer()" type="button" class="btn" data-bgcolor="#00b489" data-color="#ffffff" style="color: rgb(255, 255, 255); background-color: rgb(0, 180, 137);">
+            <i class="icon-copy dw dw-phone-call"></i>
+        </button>
+      </div>
+
+    <iframe  name="iframe_a" style="display:none"></iframe>
+
+
+
+</div>

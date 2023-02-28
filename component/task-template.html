@@ -1,0 +1,800 @@
+<div class="xs-pd-20-10 pd-ltr-20">
+    
+    <div class="page-header">
+        <div class="title my-2">
+            <h3>Task</h3>
+        </div>
+        <div class="header_btn_container">
+            <div class="m-1" >
+                <button type="button" class="btn head_buttons btn-sm"  data-modal="add" style="color: rgb(255, 255, 255); background-color: rgb(83 175 79)">
+                    <span><i class="icon-copy dw dw-add"></i></span> <span class="ml-2">Add Task</span>
+                </button>
+            </div>
+            <div class="m-1 admin_c_tab" >
+                <button type="button" class="btn head_buttons btn-sm" data-modal="assign"  style="color: rgb(255, 255, 255); background-color: rgb(38, 38, 134)">
+                    <span><i class="icon-copy dw dw-add"></i></span> <span class="ml-2">Assign Task</span>
+                </button>
+            </div>
+            <div class="m-1">
+                <button type="button" class="btn head_buttons btn-sm" data-modal="preloader"  style="color: rgb(255, 255, 255); background-color: rgb(85, 93, 85)">
+                    <span><i class="icon-copy dw dw-add"></i></span> <span class="ml-2">Preloader Task</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-header">
+        <div class="">
+            <div class="">
+               
+                <div class="tab ">
+                    <ul class="nav nav-tabs customtab tab_container_box_header tab_list_container_status" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#pending_bg_tab" role="tab" aria-selected="true">Pending</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#preloader_bg_tab" role="tab" aria-selected="false">Preloader</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#view_bg_tab" role="tab" aria-selected="false">View</a>
+                        </li>
+                        <li class="nav-item admin_c_tab">
+                            <a class="nav-link" data-toggle="tab" href="#manage_bg_tab" role="tab" aria-selected="false">Manage</a>
+                        </li>
+                        <li class="nav-item admin_c_tab">
+                            <a class="nav-link" data-toggle="tab" href="#approval_bg_tab" role="tab" aria-selected="false">Approval</a>
+                        </li>
+                        <li class="nav-item admin_c_tab">
+                            <a class="nav-link" data-toggle="tab" href="#managing_bg_tab" role="tab" aria-selected="false">Managing</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content tab_container_box">
+                        <div class="tab-pane fade show active" id="pending_bg_tab" role="tabpanel">
+                            <div >
+                                <div class="mb-10">
+                                    <div class="height-100-p pd-20 min-height-200px">
+                                        <div class="">
+                                            <div class="d-flex justify-content-between pb-10">
+                                                <div class="" style=" width: 216px;">
+                                                <div class="">
+                                                    <label class="">Select status</label>
+                                                    <div class="">
+                                                        <select id="task_pending_status_sort" class="custom-select px-2 w-100" onchange="pending_filter_tag(this)">
+                                                            <option value="All">All</option>
+                                                            <option value="Pending">Pending</option>
+                                                            <option value="Approved">Approved</option>
+                                                            <option value="Scheduling">Scheduling</option>
+                                                            <option value="Awaiting Approval">Awaiting Approval</option>
+                                                          </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div class="row two_tab_conatainer">
+                                            <div class="col-md-8 mb-10">
+                                                <div class=" height-100-p">
+                                                    <div class="user-list">
+                                                        <ul class="p-2" id="pending_card_list_container" >
+                                                           <div class="no_record_img mt-5">
+                                                            <div><img src="/vendors/images/no_data.svg" alt=""></div>
+                                                            <div>No Record</div>
+                                                           </div>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-4">
+                                                <div class="card-box min-height-200px pd-20 tab_count_box_card" data-bgcolor="#265ed7">
+                                                    <div>
+                                                        <div class="pd-20  height-100-p">
+                                                            <h4 class="mb-20 h4">Task Status List</h4>
+                                                            <ul class="list-group">
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    Pending
+                                                                    <span class="badge text-dark badge-pill status_count_s_pending ">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                   Approved
+                                                                    <span class="badge text-dark  badge-pill status_count_s_approved">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                   Scheduling
+                                                                    <span class="badge text-dark badge-pill status_count_s_scheduling ">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    Awaiting Approval
+                                                                    <span class="badge text-dark badge-pill status_count_s_awaiting_approval">0</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="preloader_bg_tab" role="tabpanel">
+                            <div >
+                                <div class="mb-10">
+                                    <div class="height-100-p pd-20 min-height-200px">
+                                        <div class="">
+                                            <div class="d-flex justify-content-between pb-10">
+                                                <div class="" style=" width: 216px;">
+                                                <div class="">
+                                                    <label class="">Select status</label>
+                                                    <div class="">
+                                                        <select id="task_peloader_status_sort"  class="custom-select px-2 w-100" onchange="preloader_filter_tag(this)">
+                                                            <option value="All">All</option>
+                                                            <option value="Daily">Daily</option>
+                                                            <option value="Weekly">Weekly</option>
+                                                            <option value="Monthly">Monthly</option>
+                                                            <option value="Yearly">Yearly</option>
+                                                          </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="row two_tab_conatainer">
+                                            <div class="col-md-8 mb-10">
+                                                <div class=" height-100-p">
+                                                    <div class="user-list">
+                                                        <ul class="p-2" id="preloader_card_list_container">
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-4">
+                                                <div class="card-box min-height-200px pd-20 tab_count_box_card" data-bgcolor="#265ed7">
+                                                    <div>
+                                                        <div class="pd-20 height-100-p">
+                                                            <h4 class="mb-20 h4">Prealoader Task Type List</h4>
+                                                            <ul class="list-group">
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center ">
+                                                                    Daily
+                                                                    <span class="badge text-dark badge-pill status_count_s_daily">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                   Weekly
+                                                                    <span class="badge text-dark  badge-pill status_count_s_weekly">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                   Monthly
+                                                                    <span class="badge text-dark badge-pill status_count_s_monthly">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                   Yearly
+                                                                    <span class="badge text-dark badge-pill status_count_s_yearly">0</span>
+                                                                </li>
+                                                            
+                    
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="view_bg_tab" role="tabpanel">
+                            <div >
+                                <div class="mb-10">
+                                    <div class="height-100-p pd-20 min-height-200px">
+                                        <div class=" pb-10">
+                                            <div class="row pb-10">
+                                                <div class="col-md-3 col-lg-2" >
+                                                <div class="">
+                                                    <label class="">Select Status</label>
+                                                    <div class="">
+                                                        <select id="task_view_status_sort"  class="custom-select px-2 w-100">
+                                                            <option value="All">All</option>
+                                                            <option value="Pending">Pending</option>
+                                                            <option value="Approved">Approved</option>
+                                                            <option value="Awaiting Approval">Awaiting Approval</option>
+                                                            <option value="Completed">Completed</option>
+                                                          </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                <div class="col-md-3 col-lg-2" >
+                                                <div class="">
+                                                    <label class="">From Date</label>
+                                                    <div class="">
+                                                        <input type="date" name="" id="task_view_start_date" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                <div class="col-md-3 col-lg-2" >
+                                                <div class="">
+                                                    <label class="">To Date</label>
+                                                    <div class="">
+                                                        <input type="date" name="" id="task_view_end_date" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                <div class="col-md-3" >
+                                                <div class="">
+                                                    <div class="border-0 p-0 mt-4">
+                                                        <button class="btn btn-primary btn-sm" id="task_view_filter_btn" onclick="view_filter_tag()">Filter</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                           
+                                        </div>
+                                        <div class="row two_tab_conatainer">
+                                            <div class="col-md-8 mb-10">
+                                                <div class=" height-100-p">
+                                                    <div class="user-list">
+                                                        <ul class="p-2" id="view_card_list_container">
+                                                            <div class="no_record_img mt-5">
+                                                                <div><img src="/vendors/images/no_data.svg" alt=""></div>
+                                                                <div>No Record</div>
+                                                            </div>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-4">
+                                                <div class="card-box min-height-200px pd-20 tab_count_box_card" data-bgcolor="#265ed7">
+                                                    <div>
+                                                        <div class="pd-20  height-100-p">
+                                                            <h4 class="mb-20 h4">Task Status List</h4>
+                                                            <ul class="list-group">
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center  ">
+                                                                    Pending
+                                                                    <span class="badge text-dark badge-pill view_count_list_pending">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                   Approved
+                                                                    <span class="badge text-dark  badge-pill view_count_list_approved">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    Awaiting Approval
+                                                                    <span class="badge text-dark badge-pill view_count_list_awiting_approval">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    Completed
+                                                                    <span class="badge text-dark  badge-pill view_count_list_completed">0</span>
+                                                                </li>
+                                                                
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="manage_bg_tab" role="tabpanel">
+                            <div >
+                                <div class="mb-10">
+                                    <div class="height-100-p pd-20 min-height-200px">
+                                        <div class=" pb-10">
+                                            <div class="row pb-10">
+                                                <div class="col-md-3 col-lg-2" >
+                                                <div class="">
+                                                    <label class="">Select Name</label>
+                                                    <div class="">
+                                                        <select id="task_manage_name_sort" class="custom-select px-2 w-100">
+                                                            <option value="All">All</option>
+                                                            <option value="Pending">Pending</option>
+                                                            <option value="Scheduling">Scheduling</option>
+                                                            <option value="Awaiting Approval">Awaiting Approval</option>
+                                                          </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                <div class="col-md-3 col-lg-2" >
+                                                <div class="">
+                                                    <label class="">Select Status</label>
+                                                    <div class="">
+                                                        <select id="task_manage_status_sort" class="custom-select px-2 w-100">
+                                                            <option value="All">All</option>
+                                                            <option value="Pending">Pending</option>
+                                                            <option value="Approved">Approved</option>
+                                                            <option value="Completed">Completed</option>
+                                                            <option value="Awaiting Approval">Awaiting Approval</option>
+                                                          </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                <div class="col-md-3 col-lg-2" >
+                                                <div class="">
+                                                    <label class="">From Date</label>
+                                                    <div class="">
+                                                        <input type="date" class="form-control"  name="" id="manage_filter_start_date">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                <div class="col-md-3 col-lg-2" >
+                                                <div class="">
+                                                    <label class="">To Date</label>
+                                                    <div class="">
+                                                        <input type="date" name="" id="manage_filter_end_date" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col mt-4">
+                                                <button class="btn btn-primary btn-sm" id="task_manage_filter_btn" onclick="manage_filter_tag()" >Filter</button>
+                                            </div>
+                                            </div>
+                                
+                                        </div>
+                                        <div class="row two_tab_conatainer">
+                                            <div class="col-md-8 mb-10">
+                                                <div class=" height-100-p">
+                                                    <div class="user-list">
+                                                        <ul class="p-2" id="manage_card_list_container">
+                                                            <div class="no_record_img mt-5">
+                                                                <div><img src="/vendors/images/no_data.svg" alt=""></div>
+                                                                <div>No Record</div>
+                                                            </div>
+                                                           
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-4 ">
+                                                <div class="card-box min-height-200px pd-20 tab_count_box_card" data-bgcolor="#265ed7">
+                                                    <div>
+                                                        <div class="pd-20  height-100-p">
+                                                            <h4 class="mb-20 h4">Task Status List</h4>
+                                                            <ul class="list-group">
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    Pending
+                                                                    <span class="badge text-dark badge-pill manage_count_list_pending">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                   Approved
+                                                                    <span class="badge text-dark  badge-pill manage_count_list_approved">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    Awaiting Approval
+                                                                    <span class="badge text-dark badge-pill manage_count_list_awaiting_approval">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    Completed
+                                                                    <span class="badge text-dark  badge-pill manage_count_list_completed">0</span>
+                                                                </li>
+                                                                
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="approval_bg_tab" role="tabpanel">
+                            <div >
+                                <div class="mb-10">
+                                    <div class="height-100-p pd-20 min-height-200px">
+                                        <div class="">
+                                            <div class="d-flex justify-content-between pb-10">
+                                                <div class="" style=" width: 216px;">
+                                                <div class="">
+                                                    <label class="">Select Name</label>
+                                                    <div class="">
+                                                        <select id="task_approval_name_sort" class="custom-select px-2 w-100" onchange="approval_filter_tag(this)">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div class="row two_tab_conatainer">
+                                            <div class="col-md-8 mb-10">
+                                                <div class=" height-100-p">
+                                                    <div class="user-list">
+                                                        <ul class="p-2" id="approval_card_list_container">
+                                                         
+                                                           
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-4 ">
+                                                <div class="card-box min-height-200px pd-20 tab_count_box_card" data-bgcolor="#265ed7">
+                                                    <div>
+                                                        <div class="pd-20  height-100-p">
+                                                            <h4 class="mb-20 h4">Task Status List</h4>
+                                                            <ul class="list-group">
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                   Awaiting Approval
+                                                                    <span class="badge text-dark  badge-pill approval_count_list_awaiting_approval">0</span>
+                                                                </li>
+                                                                
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="managing_bg_tab" role="tabpanel">
+                            <div >
+                                <div class="mb-10">
+                                    <div class="height-100-p pd-20 min-height-200px">
+                                        <div class=" pb-10">
+                                            <div class="row pb-10">
+                                                <div class="col-md-3 col-lg-2">
+                                                <div class="">
+                                                    <label class="">Select Name</label>
+                                                    <div class="">
+                                                        <select id="task_managing_name_sort" class="custom-select px-2 w-100">
+                                                        </select>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                <div class="col-md-3 col-lg-2" >
+                                                <div class="">
+                                                    <label class="">Select Status</label>
+                                                    <div class="">
+                                                        <select id="task_managing_status_sort" class="custom-select px-2 w-100">
+                                                            <option value="All" selected>All</option>
+                                                            <option value="Pending">Pending</option>
+                                                            <option value="Scheduling">Scheduling</option>
+                                                            <option value="Completed">Completed</option>
+                                                          </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                
+                                            <div class="col-md-3 mt-4" >
+                                                    <div class="border-0 p-0">
+                                                        <button class="btn btn-primary btn-sm" id="task_managing_filter_btn" onclick="managing_filter_tag()">Filter</button>
+                                                    </div>
+                                            </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="row two_tab_conatainer">
+                                            <div class="col-md-8 mb-10">
+                                                <div class=" height-100-p">
+                                                    <div class="user-list">
+                                                        <ul class="p-2" id="managing_card_list_container">
+                                                            <div class="no_record_img mt-5">
+                                                                <div><img src="/vendors/images/no_data.svg" alt=""></div>
+                                                                <div>No Record</div>
+                                                            </div>
+                                                           
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-4">
+                                                <div class="card-box min-height-200px pd-20 tab_count_box_card" data-bgcolor="#265ed7">
+                                                    <div>
+                                                        <div class="pd-20  height-100-p">
+                                                            <h4 class="mb-20 h4">Task Status List</h4>
+                                                            <ul class="list-group">
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    Pending
+                                                                    <span class="badge text-dark badge-pill managing_count_list_pending">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                   Approved
+                                                                    <span class="badge text-dark  badge-pill managing_count_list_approved">0</span>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                   Scheduling
+                                                                    <span class="badge text-dark badge-pill managing_count_list_scheduling">0</span>
+                                                                </li>
+                                                            
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    Completed
+                                                                    <span class="badge text-dark  badge-pill managing_count_list_completed">0</span>
+                                                                </li>
+                                                                
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <!-- MODAL TABS -->
+ <div class="modal fade" id="add_task_modal" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <di class="fw-bold modal_heade_text">Add Task</di>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="background-color: #eee;">
+                <form id="add_task_modal_form" class="form_containers">
+                    <div class="page-header">
+                        <div class="form-group">
+                            <label>Task Info</label>
+                            <textarea  placeholder="Task Info......." class="form-control new_task_info " cols="30" rows="10"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Schedule Date</label>
+                            <input class="form-control new_task_date " type="date" onchange="checkPreDate(this)">
+                        </div>
+                    </div>
+                </form>
+                <button type="button" id="add_ex_task" onclick="extra_task()" class="btn btn-outline-primary btn-sm my-2">
+                 <span> <i class="icon-copy dw dw-add"></i></span><span class="ml-2">Add</span>
+                </button>
+               
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success btn-sm" id="add_task_confirm_btn">
+                   Submit
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- //Assign task -->
+<div class="modal fade" id="assign_task_modal" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <di class="fw-bold modal_heade_text">Assign Task</di>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="background-color: #eee;">
+                <div style="max-height: 50vh; overflow-y: auto">
+                    <div class="form_containers my-2">
+                        <form id="assign_task_modal_form" class="w-100">
+                            <div class="page-header">
+                                <div class="form-group">
+                                    <label>Task Info</label>
+                                    <textarea class="form-control" id="assign_task_info" type="text" placeholder="Task Info......."cols="30" rows="10"></textarea>
+                                    <!-- <input class="form-control" id="assign_task_info" type="text" placeholder="Task Info......."> -->
+                                </div>
+                                <div class="form-group">
+                                    <label>Assign To</label>
+                                    <select class="form-control" id="assing_mmb_value" name="" ></select>
+                        
+                                </div>
+                            
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" id="assign_task_confirm_btn" onclick="assignTask()"> Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- //Preloader -->
+
+<div class="modal fade" id="preloader_task_modal" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <di class="fw-bold modal_heade_text">Preloader Task</di>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="preloader_task_list_append" style="max-height: 50vh; overflow-y: auto">
+                    <div class="form_containers my-2">
+                        <form id="preloader_task_modal_form" class="w-100">
+                            <div class="">
+                                <div class="form-group">
+                                    <label>Task Info</label>
+                                    <textarea class="input_st form-control" id="preloader_info_value"  placeholder="Enter task info..........." type="text"  autocomplete="off" cols="30" rows="10"></textarea>
+                                    <!-- <input class="input_st form-control" id="preloader_info_value"  placeholder="Enter task info..........." type="text"  autocomplete="off" /> -->
+                                </div>
+                                <div class="form-group">
+                                    <label>Task Type</label>
+                                    <select class="input_st form-control" id="preloader_type_value" onchange="preloaderTypeLoad(this)" >
+                                        <option value="Daily" selected>Daily</option>
+                                        <option value="Weekly">Weekly</option>
+                                        <option value="Monthly">Monthly</option>
+                                        <option value="Yearly">Yearly</option>
+                                    </select>
+                                </div>
+                                <div class="input-container form-group my-2 preloader_sub_inputs weekly_container" style="display:none ;">
+                                    <label class="form-label  text-secondary">Week</label>
+                                    <select class="input_st form-control" id="preloader_type_weekly">
+                                        <option value="Monday" selected>Monday</option>
+                                        <option value="Tuesday">Tuesday</option>
+                                        <option value="Wednesday">Wednesday</option>
+                                        <option value="Thursday">Thursday</option>
+                                        <option value="Friday">Friday</option>
+                                        <option value="Saturday">Saturday</option>
+                                    </select>
+                                </div>
+                                <div class="input-container form-group my-2 preloader_sub_inputs monthly_container"
+                                    style="display:none ;">
+                                    <label class="form-label text-secondary">Month</label>
+                                    <select class="input_st form-control" id="preloader_type_monthly_month">
+                                        <option value="January" selected>January</option>
+                                        <option value="February">February</option>
+                                        <option value="March">March</option>
+                                        <option value="April">April</option>
+                                        <option value="May">May</option>
+                                        <option value="June">June</option>
+                                        <option value="July">July</option>
+                                        <option value="August">August</option>
+                                        <option value="September">September</option>
+                                        <option value="October">October</option>
+                                        <option value="November">November</option>
+                                        <option value="December">December</option>
+                                    </select>
+                                </div>
+                                <div class="input-container form-group my-2 preloader_sub_inputs monthly_container"
+                                style="display:none ;">
+                                <label class="form-label text-secondary">Date</label>
+                                <input class="input_st form-control" id="preloader_type_monthly_date" type="number" min="1"
+                                    max="31" oninput="if(this.value > 31) return this.value = '';" />
+                                </div>
+                                <div class="input-container form-group my-2 preloader_sub_inputs yearly_container"
+                                    style="display:none ;">
+                                    <label class="form-label text-secondary">Year</label>
+                                    <input class="input_st  form-control" id="preloader_type_yearly" type="date" />
+                                </div>
+                            
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="modal_btn_style btn btn-primary btn-sm" id="preloader_task_confirm_btn" onclick="preloaderTask()">
+                    Confirm
+                </button>
+                <button type="button" class="modal_btn_style btn btn-success btn-sm" id="preloaderChange_task_confirm_btn" onclick="preloaderTaskEdit()">
+                    Change
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- ---------------------------- modify modal ----------------------------- -->
+
+
+
+<div class="modal fade" id="task_delete_modity_modal" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <di class="fw-bold modal_heade_text">Deleted Task</di>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="background-color: #ecf0f4;">
+                <form class="modify_form page-header">
+                    <div class="form-group">
+                        <label>Task Info</label>
+                        <input class="form-control modify_task_info_input" type="text"  readonly="">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-sm btn-danger" onclick="deleteTask(this)">Deleted</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="modal fade" id="preloadertask_delete_modity_modal" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <di class="fw-bold modal_heade_text">Deleted Prealoader Task</di>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="background-color: #ecf0f4;">
+                <form class="modify_form_preloader page-header">
+                    <div class="form-group">
+                        <label>Task Info</label>
+                        <input class="form-control prealoder_info_view " type="text"  readonly="">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-sm btn-danger" onclick="deletePreloaderTask(this)">Deleted</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="preloadertask_view_modity_modal" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <di class="fw-bold modal_heade_text">View Prealoader Task</di>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="background-color: #ecf0f4;">
+                <form class="modify_form_preloader page-header">
+                    <div class="form-group">
+                        <label>Task Info</label>
+                        <input class="form-control  prealoder_info_view" type="text"  readonly="">
+                    </div>
+                    <div class="form-group">
+                        <label>Task Status</label>
+                        <input class="form-control  prealoder_status_view" type="text"  readonly="">
+                    </div>
+                    <div class="form-group">
+                        <label>Task Type</label>
+                        <input class="form-control  prealoder_type_view" type="text"  readonly="">
+                    </div>
+                    <!-- <div class="form-group">
+                        <label>Task Info</label>
+                        <input class="form-control " type="text"  readonly="">
+                    </div> -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
